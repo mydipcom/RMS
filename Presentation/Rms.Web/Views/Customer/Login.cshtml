@@ -1,113 +1,155 @@
-﻿@model LoginModel
-@using Rms.Web.Models.Customer;
-@using Rms.Core;
-@using Rms.Core.Infrastructure;
-@{
-    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
-
-    //title
-    Html.AddTitleParts(T("PageTitle.Login").Text);
-
-    //register URL with return URL (if specified)
-    var registerUrl = Url.RouteUrl("Register");
-    if (!String.IsNullOrEmpty(this.Context.Request.QueryString["returnUrl"]))
-    {
-        var webHelper = EngineContext.Current.Resolve<IWebHelper>();
-        registerUrl = webHelper.ModifyQueryString(registerUrl, "returnurl=" + HttpUtility.UrlEncode(this.Context.Request.QueryString["returnUrl"]), null);
-    }
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="page login-page">
-    <div class="page-title">
-        <h1>@T("Account.Login.Welcome")</h1>
+@model Rms.Web.Models.Customer.LoginModel
+
+@section PageStyle{
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="/Content/assets/global/plugins/select2/select2.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/assets/admin/pages/css/login-soft.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL SCRIPTS -->
+}
+
+
+@section PageScript{
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="/Content/assets/global/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/Content/assets/global/plugins/select2/select2.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+
+    <script src="/Content/assets/admin/pages/scripts/login-soft.js" type="text/javascript"></script>
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        jQuery(document).ready(function() {
+            Login.init();
+            // init background slide images
+            $.backstretch([
+                    "/Content/assets/admin/pages/media/bg/1.jpg",
+                    "/Content/assets/admin/pages/media/bg/2.jpg",
+                    "/Content/assets/admin/pages/media/bg/3.jpg",
+                    "/Content/assets/admin/pages/media/bg/4.jpg"
+                ], {
+                    fade: 1000,
+                    duration: 8000
+                }
+            );
+        });
+    </script>
+    <!-- END JAVASCRIPTS -->
+}
+
+
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+<body class="login">
+    <!-- BEGIN LOGO -->
+    <div class="logo">
+        <a href="index.html">
+            <img src="/Content/assets/admin/layout/img/logo-big.png" alt="" />
+        </a>
     </div>
-    @Html.Partial("_ExternalAuthentication.AssociateMessage")
-    @Html.Partial("_ExternalAuthentication.Errors")
-    <div class="page-body">
-        <div class="customer-blocks">
-            @if (Model.CheckoutAsGuest)
+    <!-- END LOGO -->
+    <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+    <div class="menu-toggler sidebar-toggler">
+    </div>
+    <!-- END SIDEBAR TOGGLER BUTTON -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGIN FORM -->
+       
+            @using (Html.BeginForm("Login", "Customer", FormMethod.Post, new {@class = "login-form"}))
             {
-                <div class="new-wrapper checkout-as-guest-or-register-block">
-                    <div class="title">
-                        <strong>@T("Account.Login.CheckoutAsGuestOrRegister")</strong>
+
+                <h3 class="form-title">Login to your account</h3>
+                
+                @Html.ValidationSummary(true, T("Account.Login.Unsuccessful").Text)
+
+                <div class="alert alert-danger display-hide">
+                    <button class="close" data-close="alert"></button>
+                    <span>
+                        Enter any username and password.
+                    </span>
+                </div>
+                <div class="form-group">
+                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                    <label class="control-label visible-ie8 visible-ie9">Username</label>
+                    <div class="input-icon">
+                        <i class="fa fa-user"></i>
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control placeholder-no-fix" ,autocomplete="off", placeholder="Username"})
                     </div>
-                    <div class="text">
-                        @Html.Action("TopicBlock", "Topic", new { systemName = "CheckoutAsGuestOrRegister" })
+                </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">Password</label>
+                    <div class="input-icon">
+                        <i class="fa fa-lock"></i>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control placeholder-no-fix", autocomplete="off", placeholder="Password"})
                     </div>
-                    <div class="buttons">
-                        <input type="button" class="button-1 checkout-as-guest-button" onclick="location.href='@Url.RouteUrl("Checkout")'" value="@T("Account.Login.CheckoutAsGuest")" />
-                        <input type="button" class="button-1 register-button" onclick="location.href='@registerUrl'" value="@T("Account.Register")" />
-                    </div>
+                </div>
+                <div class="form-actions">
+                    <label class="checkbox">
+                        @Html.CheckBoxFor(m => m.RememberMe)Remember me
+                    </label>
+                    <button type="submit" class="btn blue pull-right">
+                        Login <i class="m-icon-swapright m-icon-white"></i>
+                    </button>
+                </div>
+                <div class="login-options">
+                    <h4>Or login with</h4>
+                    <ul class="social-icons">
+                        <li>
+                            <a class="facebook" data-original-title="facebook" href="#">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="twitter" data-original-title="Twitter" href="#">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="googleplus" data-original-title="Goole Plus" href="#">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="linkedin" data-original-title="Linkedin" href="#">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="forget-password">
+                    <h4>Forgot your password ?</h4>
+                    <p>
+                        no worries, click <a href="javascript:;" id="forget-password">
+                                              here
+                                          </a>
+                        to reset your password.
+                    </p>
+                </div>
+                <div class="create-account">
+                    <p>
+                        Don't have an account yet ?&nbsp; <a href="javascript:;" id="register-btn">
+                                                              Create an account
+                                                          </a>
+                    </p>
                 </div>
             }
-            else
-            {
-                <div class="new-wrapper register-block">
-                    <div class="title">
-                        <strong>@T("Account.Login.NewCustomer")</strong>
-                    </div>
-                    <div class="text">
-                        @T("Account.Login.NewCustomerText")
-                    </div>
-                    <div class="buttons">
-                        <input type="button" class="button-1 register-button" onclick="location.href='@registerUrl'" value="@T("Account.Register")" />
-                    </div>
-                </div>
-            }
-            <div class="returning-wrapper">
-                <div class="title">
-                    <strong>@T("Account.Login.ReturningCustomer")</strong>
-                </div>
-                <div class="form-fields">
-                    @using (Html.BeginForm())
-                    {
-                        <div class="message-error">
-                            @Html.ValidationSummary(true, T("Account.Login.Unsuccessful").Text)
-                        </div>
-                        if (Model.UsernamesEnabled)
-                        {
-                        <div class="inputs">
-                            @Html.LabelFor(m => m.Username, new { }, ":") 
-                            @Html.TextBoxFor(m => m.Username, new { @class = "username", autofocus = "autofocus" })
-                            @Html.ValidationMessageFor(m => m.Username)
-                        </div>
-                        }
-                        else
-                        {
-                        <div class="inputs">
-                            @Html.LabelFor(m => m.Email, new { }, ":")
-                            @Html.TextBoxFor(m => m.Email, new { @class = "email", autofocus = "autofocus" })
-                            @Html.ValidationMessageFor(m => m.Email)
-                        </div>
-                        }
-                        <div class="inputs">
-                            @Html.LabelFor(m => m.Password, new { }, ":")
-                            @Html.PasswordFor(m => m.Password, new { @class = "password" })
-                            @Html.ValidationMessageFor(m => m.Password)
-                        </div>
-                        <div class="inputs reversed">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
-                            <span class="forgot-password">
-                                @Html.RouteLink(T("Account.Login.ForgotPassword").Text, "PasswordRecovery")
-                            </span>
-                        </div>
-                        if (Model.DisplayCaptcha)
-                        {
-                        <div class="captcha-box">
-                            @Html.Raw(Html.GenerateCaptcha())
-                        </div>
-                        }
-                        <div class="buttons">
-                            <input class="button-1 login-button" type="submit" value="@T("Account.Login.LoginButton")" />
-                        </div>
-                       
-                    }
-                </div>
-            </div>
-        </div>
-        <div class="external-authentication">
-            @Html.Action("ExternalMethods", "ExternalAuthentication")
-        </div>
-        @Html.Action("TopicBlock", "Topic", new { systemName = "LoginRegistrationInfo" })
+
+        <!-- END LOGIN FORM -->
     </div>
-</div>
+    <!-- END LOGIN -->
+    <!-- BEGIN COPYRIGHT -->
+    <div class="copyright">
+        2014 &copy; Metronic - Admin Dashboard Template.
+    </div>
+    <!-- END COPYRIGHT -->
+</body>
+<!-- END BODY -->

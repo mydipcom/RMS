@@ -13,10 +13,7 @@ namespace Rms.Web.Models.Customer
     {
         public RegisterModel()
         {
-            this.AvailableTimeZones = new List<SelectListItem>();
-            this.AvailableCountries = new List<SelectListItem>();
-            this.AvailableStates = new List<SelectListItem>();
-            this.CustomerAttributes = new List<CustomerAttributeModel>();
+
         }
 
         [NopResourceDisplayName("Account.Fields.Email")]
@@ -107,31 +104,5 @@ namespace Rms.Web.Models.Customer
         [AllowHtml]
         public string Phone { get; set; }
 
-        public bool FaxEnabled { get; set; }
-        public bool FaxRequired { get; set; }
-        [NopResourceDisplayName("Account.Fields.Fax")]
-        [AllowHtml]
-        public string Fax { get; set; }
-        
-        public bool NewsletterEnabled { get; set; }
-        [NopResourceDisplayName("Account.Fields.Newsletter")]
-        public bool Newsletter { get; set; }
-        
-        public bool AcceptPrivacyPolicyEnabled { get; set; }
-
-        //time zone
-        [NopResourceDisplayName("Account.Fields.TimeZone")]
-        public string TimeZoneId { get; set; }
-        public bool AllowCustomersToSetTimeZone { get; set; }
-        public IList<SelectListItem> AvailableTimeZones { get; set; }
-
-        //EU VAT
-        [NopResourceDisplayName("Account.Fields.VatNumber")]
-        public string VatNumber { get; set; }
-        public bool DisplayVatNumber { get; set; }
-
-        public bool DisplayCaptcha { get; set; }
-
-        public IList<CustomerAttributeModel> CustomerAttributes { get; set; }
     }
 }
