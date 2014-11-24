@@ -1,0 +1,15 @@
+﻿@{
+    Layout = "~/Views/Shared/_ColumnsThree.cshtml";
+}
+<div class="page home-page">
+    <div class="page-body">
+        @Html.Widget("home_page_top")
+        @Html.Action("TopicBlock", "Topic", new { systemName = "HomePageText" })
+ 
+      
+    
+        @Html.Action("HomePageNews", "News")
+   
+        @Html.Widget("home_page_bottom")
+    </div>
+</div>

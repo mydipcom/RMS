@@ -1,0 +1,14 @@
+D:\Git\RMS\Presentation\Nop.Web\bin\AutoMapper.Net4.dll
+D:\Git\RMS\Presentation\Nop.Web\bin\Rms.Admin.dll.config
+D:\Git\RMS\Presentation\Nop.Web\bin\Rms.Admin.dll
+D:\Git\RMS\Presentation\Nop.Web\bin\Rms.Admin.pdb
+D:\Git\RMS\Presentation\Nop.Web\Administration\obj\Debug\Rms.Admin.csprojResolveAssemblyReference.cache
+D:\Git\RMS\Presentation\Nop.Web\Administration\obj\Debug\Rms.Admin.dll
+D:\Git\RMS\Presentation\Nop.Web\Administration\obj\Debug\Rms.Admin.pdb
+D:\Git\RMS\Presentation\Rms.Web\bin\AutoMapper.Net4.dll
+D:\Git\RMS\Presentation\Rms.Web\bin\Rms.Admin.dll.config
+D:\Git\RMS\Presentation\Rms.Web\bin\Rms.Admin.dll
+D:\Git\RMS\Presentation\Rms.Web\bin\Rms.Admin.pdb
+D:\Git\RMS\Presentation\Rms.Web\Administration\obj\Debug\Rms.Admin.csprojResolveAssemblyReference.cache
+D:\Git\RMS\Presentation\Rms.Web\Administration\obj\Debug\Rms.Admin.dll
+D:\Git\RMS\Presentation\Rms.Web\Administration\obj\Debug\Rms.Admin.pdb
