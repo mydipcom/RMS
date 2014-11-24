@@ -7,7 +7,7 @@ namespace Rms.Web.Controllers
     {
         [NopHttpsRequirement(SslRequirement.No)]
         public ActionResult Index()
-        {
+        { 
             return View();
         }
     }
