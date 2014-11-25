@@ -33,6 +33,8 @@ namespace Rms.Core.Domain.Customers
         /// Gets or sets the username
         /// </summary>
         public string Username { get; set; }
+
+        public string Mobile { get; set; }
         /// <summary>
         /// Gets or sets the email
         /// </summary>

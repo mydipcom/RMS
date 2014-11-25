@@ -25,6 +25,10 @@ namespace Rms.Web.Models.Customer
         [AllowHtml]
         public string Username { get; set; }
 
+        [NopResourceDisplayName("Account.Fields.Mobile")]
+        [AllowHtml]
+        public string Mobile { get; set; }
+
         public bool CheckUsernameAvailabilityEnabled { get; set; }
 
         [DataType(DataType.Password)]
