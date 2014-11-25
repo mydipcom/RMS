@@ -886,7 +886,7 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                             <img alt="" class="img-circle" src="/Content/assets/admin/layout/img/avatar3_small.jpg" />
                             <span class="username username-hide-on-mobile">
-                                Bob
+                                @WorkContext.CurrentCustomer.Username
                             </span>
                             <i class="fa fa-angle-down"></i>
                         </a>
@@ -923,7 +923,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="login.html">
+                                <a href="@Url.Action("Logout", "Customer")">
                                     <i class="icon-key"></i> Log Out
                                 </a>
                             </li>

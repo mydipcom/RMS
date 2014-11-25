@@ -68,7 +68,7 @@
     <div class="content">
         <!-- BEGIN LOGIN FORM -->
        
-            @using (Html.BeginForm("Login", "Customer", FormMethod.Post, new {@class = "login-form"}))
+            @using (Html.BeginForm("Login", "Customer", new { returnurl = ViewBag.returnUrl ?? this.Context.Request.QueryString["returnUrl"] }, FormMethod.Post, new { @class = "login-form" }))
             {
 
                 <h3 class="form-title">Login to your account</h3>
@@ -128,7 +128,7 @@
                 <div class="forget-password">
                     <h4>Forgot your password ?</h4>
                     <p>
-                        no worries, click <a href="javascript:;" id="forget-password">
+                        no worries, click <a href="@Url.Action("ResetPassword")" id="forget-password">
                                               here
                                           </a>
                         to reset your password.
@@ -136,7 +136,7 @@
                 </div>
                 <div class="create-account">
                     <p>
-                        Don't have an account yet ?&nbsp; <a href="javascript:;" id="register-btn">
+                        Don't have an account yet ?&nbsp; <a href="@Url.Action("Register")" id="register-btn">
                                                               Create an account
                                                           </a>
                     </p>

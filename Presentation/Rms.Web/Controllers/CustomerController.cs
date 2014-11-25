@@ -57,7 +57,6 @@ namespace Rms.Web.Controllers
         private readonly ICurrencyService _currencyService;
 
         private readonly IPictureService _pictureService;
-        private readonly INewsLetterSubscriptionService _newsLetterSubscriptionService;
         private readonly IForumService _forumService;
 
         private readonly IOpenAuthenticationService _openAuthenticationService;
@@ -129,7 +128,6 @@ namespace Rms.Web.Controllers
             this._currencyService = currencyService;
 
             this._pictureService = pictureService;
-            this._newsLetterSubscriptionService = newsLetterSubscriptionService;
             this._forumService = forumService;
 
             this._openAuthenticationService = openAuthenticationService;
@@ -208,6 +206,15 @@ namespace Rms.Web.Controllers
         }
 
 
+        public ActionResult Logout(string returnUrl)
+        {
+            _authenticationService.SignOut();
+            if (!String.IsNullOrEmpty(returnUrl))
+                return Redirect(returnUrl);
+            return RedirectToRoute("HomePage");
+        }
+
+
         [NopHttpsRequirement(SslRequirement.Yes)]
         public ActionResult Register()
         {
@@ -218,16 +225,64 @@ namespace Rms.Web.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
-            return View();
+            if (_workContext.CurrentCustomer.IsRegistered())
+            {
+                //Already registered customer. 
+                _authenticationService.SignOut();
+
+                //Save a new record
+                _workContext.CurrentCustomer = _customerService.InsertGuestCustomer();
+            }
+            var customer = _workContext.CurrentCustomer;
+            if (ModelState.IsValid)
+            {
+                bool isApproved = _customerSettings.UserRegistrationType == UserRegistrationType.Standard;
+                var registrationRequest = new CustomerRegistrationRequest(customer, model.Email, model.Username,
+                    model.Password,
+                    _customerSettings.DefaultPasswordFormat, isApproved);
+                var registrationResult = _customerRegistrationService.RegisterCustomer(registrationRequest);
+                if (registrationResult.Success)
+                {
+                    customer.Mobile = model.Mobile;
+                    _customerService.UpdateCustomer(customer);
+                    return RedirectToAction("Login");
+                }
+                else
+                {
+                    foreach (var error in registrationResult.Errors)
+                        ModelState.AddModelError("", error);
+                }
+            }
+            return View(model);
         }
 
-
-
-        public ActionResult ResetPassword()
+        public ActionResult PasswordRecovery()
         {
-            return View();
+            var model=new PasswordRecoveryModel();
+            return View(model);
         }
 
+
+        [HttpPost]
+        public ActionResult PasswordRecovery(PasswordRecoveryModel model)
+        { 
+            if (ModelState.IsValid)
+            {
+                var customer = _customerService.GetCustomerByEmail(model.Email);
+                if (customer != null && customer.Active && !customer.Deleted)
+                {
+                    _workflowMessageService.SendCustomerPasswordRecoveryMessage(customer,
+                        _workContext.WorkingLanguage.Id);
+
+                    model.Result = _localizationService.GetResource("Account.PasswordRecovery.EmailHasBeenSent");
+                }
+                else
+                    model.Result = _localizationService.GetResource("Account.PasswordRecovery.EmailNotFound");
+
+                return View(model);
+            }
+            return View(model);
+        }
 
         public ActionResult Profile()
         {

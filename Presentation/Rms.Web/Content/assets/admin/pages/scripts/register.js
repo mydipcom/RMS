@@ -5,7 +5,7 @@
 
         function format(state) {
             if (!state.id) return state.text; // optgroup
-            return "<img class='flag' src='../../assets/global/img/flags/" + state.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + state.text;
+            return "<img class='flag' src='/Content/assets/global/img/flags/" + state.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + state.text;
         }
 
 
@@ -32,31 +32,20 @@
             focusInvalid: false, // do not focus the last invalid input
             ignore: "",
             rules: {
-
-                fullname: {
-                    required: true
-                },
-                email: {
+                Email: {
                     required: true,
                     email: true
                 },
-                address: {
+                Username: {
                     required: true
                 },
-                city: {
+                Password: {
                     required: true
                 },
-                country: {
+                Mobile: {
                     required: true
                 },
-
-                username: {
-                    required: true
-                },
-                password: {
-                    required: true
-                },
-                rpassword: {
+                ConfirmPassword: {
                     equalTo: "#register_password"
                 },
 
