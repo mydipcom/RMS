@@ -67,11 +67,7 @@ namespace Rms.Services.Customers
         /// <returns>Result</returns>
         public virtual CustomerLoginResults ValidateCustomer(string usernameOrEmail, string password)
         {
-            Customer customer = null;
-            if (_customerSettings.UsernamesEnabled)
-                customer = _customerService.GetCustomerByUsername(usernameOrEmail);
-            else
-                customer = _customerService.GetCustomerByEmail(usernameOrEmail);
+            Customer customer = _customerService.GetCustomerByUsername(usernameOrEmail);
 
             if (customer == null)
                 return CustomerLoginResults.CustomerNotExist;

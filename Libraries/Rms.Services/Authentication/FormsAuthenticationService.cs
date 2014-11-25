@@ -40,11 +40,11 @@ namespace Rms.Services.Authentication
 
             var ticket = new FormsAuthenticationTicket(
                 1 /*version*/,
-                _customerSettings.UsernamesEnabled ? customer.Username : customer.Email,
+                customer.Username,
                 now,
                 now.Add(_expirationTimeSpan),
                 createPersistentCookie,
-                _customerSettings.UsernamesEnabled ? customer.Username : customer.Email,
+                customer.Username,
                 FormsAuthentication.FormsCookiePath);
 
             var encryptedTicket = FormsAuthentication.Encrypt(ticket);
@@ -85,7 +85,7 @@ namespace Rms.Services.Authentication
                 return null;
             }
 
-            var formsIdentity = (FormsIdentity)_httpContext.User.Identity;
+            var formsIdentity = (FormsIdentity) _httpContext.User.Identity;
             var customer = GetAuthenticatedCustomerFromTicket(formsIdentity.Ticket);
             if (customer != null && customer.Active && !customer.Deleted && customer.IsRegistered())
                 _cachedCustomer = customer;
@@ -101,9 +101,7 @@ namespace Rms.Services.Authentication
 
             if (String.IsNullOrWhiteSpace(usernameOrEmail))
                 return null;
-            var customer = _customerSettings.UsernamesEnabled
-                ? _customerService.GetCustomerByUsername(usernameOrEmail)
-                : _customerService.GetCustomerByEmail(usernameOrEmail);
+            var customer = _customerService.GetCustomerByUsername(usernameOrEmail);
             return customer;
         }
     }
