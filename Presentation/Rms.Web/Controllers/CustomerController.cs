@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using Rms.Core;
 using Rms.Core.Domain.Common;
@@ -21,6 +23,7 @@ using Rms.Services.Messages;
 using Rms.Services.Stores;
 using Rms.Web.Framework.Security;
 using Rms.Web.Framework.UI.Captcha;
+using Rms.Web.Models.Common;
 using Rms.Web.Models.Customer;
 
 namespace Rms.Web.Controllers
@@ -28,10 +31,11 @@ namespace Rms.Web.Controllers
     public partial class CustomerController : BasePublicController
     {
         #region Fields
+
         private readonly IAuthenticationService _authenticationService;
         private readonly IDateTimeHelper _dateTimeHelper;
         private readonly DateTimeSettings _dateTimeSettings;
-      
+
         private readonly ILocalizationService _localizationService;
         private readonly IWorkContext _workContext;
         private readonly IStoreContext _storeContext;
@@ -41,23 +45,23 @@ namespace Rms.Web.Controllers
         private readonly ICustomerAttributeService _customerAttributeService;
         private readonly IGenericAttributeService _genericAttributeService;
         private readonly ICustomerRegistrationService _customerRegistrationService;
-       
+
         private readonly CustomerSettings _customerSettings;
         private readonly AddressSettings _addressSettings;
         private readonly ForumSettings _forumSettings;
-      
+
         private readonly IAddressService _addressService;
         private readonly ICountryService _countryService;
         private readonly IStateProvinceService _stateProvinceService;
-     
+
         private readonly ICurrencyService _currencyService;
-        
+
         private readonly IPictureService _pictureService;
         private readonly INewsLetterSubscriptionService _newsLetterSubscriptionService;
         private readonly IForumService _forumService;
-      
+
         private readonly IOpenAuthenticationService _openAuthenticationService;
-       
+
         private readonly IDownloadService _downloadService;
         private readonly IWebHelper _webHelper;
         private readonly ICustomerActivityService _customerActivityService;
@@ -74,8 +78,8 @@ namespace Rms.Web.Controllers
 
         public CustomerController(IAuthenticationService authenticationService,
             IDateTimeHelper dateTimeHelper,
-            DateTimeSettings dateTimeSettings, 
-          
+            DateTimeSettings dateTimeSettings,
+
             ILocalizationService localizationService,
             IWorkContext workContext,
             IStoreContext storeContext,
@@ -85,16 +89,16 @@ namespace Rms.Web.Controllers
             ICustomerAttributeService customerAttributeService,
             IGenericAttributeService genericAttributeService,
             ICustomerRegistrationService customerRegistrationService,
-            
-            CustomerSettings customerSettings,AddressSettings addressSettings, ForumSettings forumSettings,
-            
+
+            CustomerSettings customerSettings, AddressSettings addressSettings, ForumSettings forumSettings,
+
             ICountryService countryService, IStateProvinceService stateProvinceService,
-            
-            ICurrencyService currencyService,  
+
+            ICurrencyService currencyService,
             IPictureService pictureService, INewsLetterSubscriptionService newsLetterSubscriptionService,
-            IForumService forumService,  
-            IOpenAuthenticationService openAuthenticationService, 
-            
+            IForumService forumService,
+            IOpenAuthenticationService openAuthenticationService,
+
             IDownloadService downloadService, IWebHelper webHelper,
             ICustomerActivityService customerActivityService, MediaSettings mediaSettings,
             IWorkflowMessageService workflowMessageService, LocalizationSettings localizationSettings,
@@ -103,7 +107,7 @@ namespace Rms.Web.Controllers
             this._authenticationService = authenticationService;
             this._dateTimeHelper = dateTimeHelper;
             this._dateTimeSettings = dateTimeSettings;
-           
+
             this._localizationService = localizationService;
             this._workContext = workContext;
             this._storeContext = storeContext;
@@ -113,23 +117,23 @@ namespace Rms.Web.Controllers
             this._customerAttributeService = customerAttributeService;
             this._genericAttributeService = genericAttributeService;
             this._customerRegistrationService = customerRegistrationService;
-           
-           
+
+
             this._customerSettings = customerSettings;
             this._addressSettings = addressSettings;
             this._forumSettings = forumSettings;
-            
+
             this._countryService = countryService;
             this._stateProvinceService = stateProvinceService;
-          
+
             this._currencyService = currencyService;
-           
+
             this._pictureService = pictureService;
             this._newsLetterSubscriptionService = newsLetterSubscriptionService;
             this._forumService = forumService;
-           
+
             this._openAuthenticationService = openAuthenticationService;
-           
+
             this._downloadService = downloadService;
             this._webHelper = webHelper;
             this._customerActivityService = customerActivityService;
@@ -145,7 +149,7 @@ namespace Rms.Web.Controllers
 
 
 
-        
+
         [NopHttpsRequirement(SslRequirement.Yes)]
         public ActionResult Login()
         {
@@ -211,10 +215,56 @@ namespace Rms.Web.Controllers
         }
 
 
-         [HttpPost]
+        [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
             return View();
+        }
+
+
+
+        public ActionResult ResetPassword()
+        {
+            return View();
+        }
+
+
+        public ActionResult Profile()
+        {
+            return View();
+        }
+
+
+
+        public ActionResult CustomerManager()
+        {
+            return View();
+        }
+
+
+        public ActionResult CustomerList(DataTableParameter param)
+        {
+            var tabrow = new List<CustomerModel>();
+
+
+            for (int i = 0; i < 100; i++)
+            {
+                tabrow.Add(new CustomerModel()
+                {
+                    Id = i,
+                    Name = "Alvis" + i,
+                    Age = i
+                });
+            }
+
+
+            return Json(new
+            {
+                param.draw,
+                data = tabrow.Skip((param.draw - 1)*param.length).Take(param.length),
+                recordsTotal = 100,
+                recordsFiltered = 100
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }
