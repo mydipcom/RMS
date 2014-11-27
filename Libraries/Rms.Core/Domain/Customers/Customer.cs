@@ -14,7 +14,7 @@ namespace Rms.Core.Domain.Customers
     {
         private ICollection<ExternalAuthenticationRecord> _externalAuthenticationRecords;
         private ICollection<CustomerRole> _customerRoles;
-        private ICollection<Group> _customerGroupses;
+        private ICollection<CustomerGrop> _customerGroupes;
         private ICollection<Address> _addresses;
 
         /// <summary>
@@ -179,14 +179,13 @@ namespace Rms.Core.Domain.Customers
             protected set { _addresses = value; }            
         }
 
-
         /// <summary>
         /// 
         /// </summary>
-        public virtual ICollection<Group> CustomerGroupses
+        public virtual ICollection<CustomerGrop> CustomerGroupes
         {
-            get { return _customerGroupses ?? (_customerGroupses = new List<Group>()); }
-            protected set { _customerGroupses = value; }
+            get { return _customerGroupes ?? (_customerGroupes = new List<CustomerGrop>()); }
+            protected set { _customerGroupes = value; }
         }
 
         #endregion
