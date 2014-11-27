@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Rms.Core.Domain.Common;
+using Rms.Core.Domain.Tenants;
  
 
 namespace Rms.Core.Domain.Customers
@@ -81,6 +82,8 @@ namespace Rms.Core.Domain.Customers
         /// </summary>
         public int VendorId { get; set; }
 
+        public int TenantId { get; set; }
+
         /// <summary>
         /// Gets or sets a value indicating whether this customer has some products in the shopping cart
         /// <remarks>The same as if we run this.ShoppingCartItems.Count > 0
@@ -160,6 +163,11 @@ namespace Rms.Core.Domain.Customers
         /// Default shipping address
         /// </summary>
         public virtual Address ShippingAddress { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual Tenant Tenant { get; set; }
 
         /// <summary>
         /// Gets or sets customer addresses
