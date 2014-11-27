@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Rms.Core.Domain.Common;
+using Rms.Core.Domain.Groups;
 using Rms.Core.Domain.Tenants;
  
 
@@ -13,7 +14,7 @@ namespace Rms.Core.Domain.Customers
     {
         private ICollection<ExternalAuthenticationRecord> _externalAuthenticationRecords;
         private ICollection<CustomerRole> _customerRoles;
-     
+        private ICollection<Group> _customerGroupses;
         private ICollection<Address> _addresses;
 
         /// <summary>
@@ -177,7 +178,17 @@ namespace Rms.Core.Domain.Customers
             get { return _addresses ?? (_addresses = new List<Address>()); }
             protected set { _addresses = value; }            
         }
-        
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual ICollection<Group> CustomerGroupses
+        {
+            get { return _customerGroupses ?? (_customerGroupses = new List<Group>()); }
+            protected set { _customerGroupses = value; }
+        }
+
         #endregion
     }
 }

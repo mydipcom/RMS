@@ -22,9 +22,7 @@ namespace Rms.Core.Domain.Tenants
 
         public string Language { get; set; }
 
-        public string Timezone { get; set; }
-        
-        public int CustomerId { get; set; }
+        public string Timezone { get; set; } 
 
         public int StatusId { get; set; }
 
@@ -38,10 +36,6 @@ namespace Rms.Core.Domain.Tenants
 
         public DataTable LastModified { get; set; }
 
-        #region Navigation properties
-
-        public virtual Customer Customer { get; set; }
-
-        #endregion
+        
     }
 }
