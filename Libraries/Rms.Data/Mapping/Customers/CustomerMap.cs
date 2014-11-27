@@ -22,6 +22,7 @@ namespace Rms.Data.Mapping.Customers
             this.HasMany<Address>(c => c.Addresses)
                 .WithMany()
                 .Map(m => m.ToTable("CustomerAddresses"));
+
             this.HasOptional<Address>(c => c.BillingAddress);
             this.HasOptional<Address>(c => c.ShippingAddress);
         }

@@ -76,11 +76,13 @@
     <Compile Include="Mapping\Customers\CustomerAttributeMap.cs" />
     <Compile Include="Mapping\Customers\CustomerAttributeValueMap.cs" />
     <Compile Include="Mapping\Customers\CustomerGroupMap.cs" />
+    <Compile Include="Mapping\Groups\GroupMap.cs" />
     <Compile Include="Mapping\Stores\StoreMappingMap.cs" />
     <Compile Include="Mapping\Stores\StoreMap.cs" />
     <Compile Include="Mapping\Security\AclRecordMap.cs" />
     <Compile Include="Mapping\Seo\UrlRecordMap.cs" />
     <Compile Include="Mapping\Customers\ExternalAuthenticationRecordMap.cs" />
+    <Compile Include="Mapping\Tenants\Tenant.cs" />
     <Compile Include="Mapping\Tasks\ScheduleTaskMap.cs" />
     <Compile Include="SqlServerDataProvider.cs" />
     <Compile Include="SqlCeDataProvider.cs" />
