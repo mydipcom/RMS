@@ -165,10 +165,7 @@ namespace Rms.Core.Domain.Customers
         /// </summary>
         public virtual Address ShippingAddress { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        public virtual Tenant Tenant { get; set; }
+       
 
         /// <summary>
         /// Gets or sets customer addresses

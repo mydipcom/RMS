@@ -34,7 +34,7 @@ namespace Rms.Core.Domain.Tenants
 
         public DateTime CreateDate { get; set; }
 
-        public DataTable LastModified { get; set; }
+        public DateTime LastModified { get; set; }
 
         
     }

@@ -26,7 +26,7 @@ using Rms.Core.Domain.Seo;
  
 using Rms.Core.Domain.Stores;
 using Rms.Core.Domain.Tasks;
- 
+using Rms.Core.Domain.Tenants;
 using Rms.Core.Domain.Topics;
  
 using Rms.Core.Infrastructure;
@@ -65,7 +65,7 @@ namespace Rms.Services.Installation
         private readonly IRepository<BlogPost> _blogPostRepository;
         private readonly IRepository<Topic> _topicRepository;
         private readonly IRepository<NewsItem> _newsItemRepository;
-        
+        private readonly IRepository<Tenant> _tenantItemRepository;
         private readonly IRepository<ActivityLogType> _activityLogTypeRepository;
         
         private readonly IRepository<ScheduleTask> _scheduleTaskRepository;
@@ -84,8 +84,8 @@ namespace Rms.Services.Installation
             IRepository<Currency> currencyRepository,
             IRepository<Customer> customerRepository,
             IRepository<CustomerRole> customerRoleRepository,
-          
-           
+
+            IRepository<Tenant> tenantRoleRepository,
             IRepository<UrlRecord> urlRecordRepository,
             
             IRepository<EmailAccount> emailAccountRepository,
@@ -113,7 +113,7 @@ namespace Rms.Services.Installation
             this._currencyRepository = currencyRepository;
             this._customerRepository = customerRepository;
             this._customerRoleRepository = customerRoleRepository;
-          
+            this._tenantItemRepository = tenantRoleRepository;
             this._urlRecordRepository = urlRecordRepository;
            
             this._emailAccountRepository = emailAccountRepository;
@@ -155,6 +155,28 @@ namespace Rms.Services.Installation
             };
 
             stores.ForEach(x => _storeRepository.Insert(x));
+        }
+
+        protected virtual void InstallTenants()
+        {
+            //var storeUrl = "http://www.yourStore.com/";
+          
+            var stores = new List<Tenant>()
+            {
+                new Tenant()
+                {
+                    TenantName = "test tenant one",
+                     
+                    StatusId = 0,
+                    IndustryId = 0,
+                    CreateDate = DateTime.UtcNow,
+                    StatusChanged = DateTime.UtcNow,
+                    LastModified= DateTime.UtcNow,
+                    IsPublic =true,
+                },
+            };
+
+            stores.ForEach(x => _tenantItemRepository.Insert(x));
         }
 
         protected virtual void InstallMeasures()
@@ -5178,7 +5200,7 @@ namespace Rms.Services.Installation
         {
             InstallStores();
             InstallMeasures();
-       
+            InstallTenants();
             InstallLanguages();
             InstallCurrencies();
             InstallCountriesAndStates();
