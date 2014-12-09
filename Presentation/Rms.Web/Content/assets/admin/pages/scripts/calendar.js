@@ -100,11 +100,13 @@ var Calendar = function() {
             $('#calendar').fullCalendar({
 //re-initialize the calendar
                 header: h,
-                defaultView: 'month', // change default view with available options from http://arshaw.com/fullcalendar/docs/views/Available_Views/ 
-                slotMinutes: 15,
+                defaultView: 'agendaWeek', // change default view with available options from http://arshaw.com/fullcalendar/docs/views/Available_Views/ 
+                slotMinutes: 1,
                 editable: true,
                 droppable: true, // this allows things to be dropped onto the calendar !!!
                 firstDay: 1,
+                maxTime: 1,
+                firstHour:1,
                 drop: function(date, allDay) { // this function is called when something is dropped
 
                     // retrieve the dropped element's stored Event Object
@@ -179,7 +181,7 @@ var Calendar = function() {
                 eventClick: function(calEvent, jsEvent, view) {
                     //alert(calEvent.title);
                     //alert(view.name);
-                    alert(calEvent.description);
+                    //alert(calEvent.description);
                    
 
                 }

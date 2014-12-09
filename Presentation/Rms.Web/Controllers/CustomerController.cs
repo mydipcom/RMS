@@ -316,7 +316,7 @@ namespace Rms.Web.Controllers
             return Json(new
             {
                 param.draw,
-                data = tabrow.Skip((param.draw - 1)*param.length).Take(param.length),
+                data = tabrow.Skip(param.start).Take(param.length),
                 recordsTotal = 100,
                 recordsFiltered = 100
             }, JsonRequestBehavior.AllowGet);

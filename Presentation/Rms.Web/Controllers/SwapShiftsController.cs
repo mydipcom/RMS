@@ -6,13 +6,19 @@ using System.Web.Mvc;
 
 namespace Rms.Web.Controllers
 {
-    public class ScheduleController : Controller
+    public class SwapShiftsController : Controller
     {
-        // GET: Schedule
+        // GET: SwapShifts
         public ActionResult Index()
         {
-            return View();  
+            return View();
         }
 
+
+        public ActionResult OpenSwap()
+        {
+            return View();
+        }
+        
     }
 }

@@ -2972,9 +2972,7 @@ function AgendaView(element, calendar, viewName) {
 			);
 			
 		}else{
-		
 			daySegmentContainer = $([]); // in jQuery 1.4, we can just do $()
-		
 		}
 		
 		slotScroller =
@@ -2993,28 +2991,94 @@ function AgendaView(element, calendar, viewName) {
 			"<table class='fc-agenda-slots' style='width:100%' cellspacing='0'>" +
 			"<tbody>";
 		d = zeroDate();
+
+
+	    maxMinute = 20;
 		maxd = addMinutes(cloneDate(d), maxMinute);
 		addMinutes(d, minMinute);
 		slotCnt = 0;
-		for (i=0; d < maxd; i++) {
-			minutes = d.getMinutes();
-			s +=
-				"<tr class='fc-slot" + i + ' ' + (!minutes ? '' : 'fc-minor') + "'>" +
-				"<th class='fc-agenda-axis " + headerClass + "'>" +
-				((!slotNormal || !minutes) ? formatDate(d, opt('axisFormat')) : '&nbsp;') +
-				"</th>" +
-				"<td class='" + contentClass + "'>" +
-				"<div style='position:relative'>&nbsp;</div>" +
-				"</td>" +
-				"</tr>";
-			addMinutes(d, opt('slotMinutes'));
-			slotCnt++;
+
+
+	    //for (i = 0; i < 1; i++) {
+	    //    s +=
+	    //        "<tr class='fc-slot0 '>\
+        //        <th class='fc-agenda-axis fc-widget-header'>12am</th>\
+        //        <td class='fc-widget-content'><div style=''>&nbsp;</div></td>\
+        //        </tr>";
+	    //}
+
+
+	    //for (i = 0; i < 1; i++) {
+	    //    s +=
+	    //        "<tr class='fc-slot0 '>\
+        //        <th class='fc-agenda-axis fc-widget-header' style='width: 64px;'>12am</th>\
+        //        <td class='fc-widget-content'>\
+        //        <div>\
+        //        <td class='fc-mon fc-col0 fc-widget-header' style='width: 185px;'>Mon 12/8</th>\
+        //        <td class='fc-tue fc-col1 fc-widget-header' style='width: 185px;'>Tue 12/9</th>\
+        //        <td class='fc-wed fc-col2 fc-widget-header' style='width: 185px;'>Wed 12/10</th>\
+        //        <td class='fc-thu fc-col3 fc-widget-header' style='width: 185px;'>Thu 12/11</th>\
+        //        <td class='fc-fri fc-col4 fc-widget-header' style='width: 185px;'>Fri 12/12</th>\
+        //        <td class='fc-sat fc-col5 fc-widget-header' style='width: 185px;'>Sat 12/13</th>\
+        //        <td class='fc-sun fc-col6 fc-widget-header'>Sun 12/14</th>\
+	    //        </div>\
+        //        </td>\
+	    //        </tr>";
+	    //}
+
+
+	    //for (i = 0; d < maxd; i++) {
+	    //    minutes = d.getMinutes();
+
+
+	    //    s +=
+	    //        "<tr class='fc-slot" + i + ' ' + (!minutes ? '' : 'fc-minor') + "'>" +
+	    //        "<th class='fc-agenda-axis " + headerClass + "'>" +
+	    //        i +
+	    //        "</th>" +
+	    //        "<td class='fs-tabletd' >Tue 12/9</td>\
+        //        <td class='fs-tabletd'>Tue 12/9</td>\
+        //        <td class='fs-tabletd'>Wed 12/10</td>\
+        //        <td class='fs-tabletd'>Thu 12/11</td>\
+        //        <td class='fs-tabletd'>Fri 12/12</td>\
+        //        <td class='fs-tabletd'>Sat 12/13</td>\
+        //        <td class='fs-tabletd'>Sun 12/14</td>" +
+	    //        "</tr>";
+
+
+	    //    addMinutes(d, opt('slotMinutes'));
+	    //    slotCnt++;
+	    //}
+
+
+
+
+		for (i = 0; d < maxd; i++) {
+		    minutes = d.getMinutes();
+
+
+		    s +=
+	           "<tr>\
+                <td style='width: 64px;'>&nbsp;</td>\
+                <td >Tue 12/9</td>\
+                <td >Tue 12/9</td>\
+                <td >Wed 12/10</td>\
+                <td  >Thu 12/11</td>\
+                <td >Fri 12/12</td>\
+                <td >Sat 12/13</td>\
+                <td >Sun 12/14</td>\
+                </tr>";
+
+
+		    addMinutes(d, opt('slotMinutes'));
+		    slotCnt++;
 		}
-		s +=
+
+
+	    s +=
 			"</tbody>" +
 			"</table>";
 		slotTable = $(s).appendTo(slotContainer);
-		
 		slotBind(slotTable.find('td'));
 	}
 
@@ -3264,7 +3328,7 @@ function AgendaView(element, calendar, viewName) {
 		scrollDate.setHours(opt('firstHour'));
 		var top = timePosition(d0, scrollDate) + 1; // +1 for the border
 		function scroll() {
-			slotScroller.scrollTop(top);
+			slotScroller.scrollTop(0);
 		}
 		scroll();
 		setTimeout(scroll, 0); // overrides any previous scroll state made by the browser

@@ -193,6 +193,7 @@
     <Compile Include="Controllers\InstallController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
+    <Compile Include="Controllers\SwapShiftsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -475,10 +476,13 @@
     <Content Include="Content\assets\admin\pages\scripts\login.js" />
     <Content Include="Content\assets\admin\pages\scripts\maps-google.js" />
     <Content Include="Content\assets\admin\pages\scripts\maps-vector.js" />
+    <Content Include="Content\assets\admin\pages\scripts\openswap.js" />
     <Content Include="Content\assets\admin\pages\scripts\portfolio.js" />
     <Content Include="Content\assets\admin\pages\scripts\portlet-draggable.js" />
     <Content Include="Content\assets\admin\pages\scripts\register.js" />
+    <Content Include="Content\assets\admin\pages\scripts\scheduleindex.js" />
     <Content Include="Content\assets\admin\pages\scripts\search.js" />
+    <Content Include="Content\assets\admin\pages\scripts\swapshifts.js" />
     <Content Include="Content\assets\admin\pages\scripts\table-advanced.js" />
     <Content Include="Content\assets\admin\pages\scripts\table-ajax.js" />
     <Content Include="Content\assets\admin\pages\scripts\table-editable.js" />
@@ -1073,6 +1077,7 @@
     <Content Include="Content\assets\global\plugins\bootstrap-colorpicker\img\hue.png" />
     <Content Include="Content\assets\global\plugins\bootstrap-colorpicker\img\saturation.png" />
     <Content Include="Content\assets\global\plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
+    <Content Include="Content\assets\global\plugins\bootstrap-datepaginator\bootstrap-datepaginator.js" />
     <Content Include="Content\assets\global\plugins\bootstrap-datepaginator\bootstrap-datepaginator.min.css" />
     <Content Include="Content\assets\global\plugins\bootstrap-datepaginator\bootstrap-datepaginator.min.js" />
     <Content Include="Content\assets\global\plugins\bootstrap-datepicker\css\datepicker.css" />
@@ -4623,6 +4628,8 @@
     <Content Include="Views\Customer\Profile.cshtml" />
     <Content Include="Views\Customer\CustomerManager.cshtml" />
     <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\SwapShifts\Index.cshtml" />
+    <Content Include="Views\SwapShifts\OpenSwap.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\assets\global\plugins\jquery-file-upload\server\php\files\thumbnail\" />
