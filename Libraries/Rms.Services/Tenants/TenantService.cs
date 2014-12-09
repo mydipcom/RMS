@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Rms.Services.Tenants
 {
-     public partial class TenantService
+    public partial class TenantService : ITenantService
     {
         #region Fields
 
@@ -28,15 +28,15 @@ namespace Rms.Services.Tenants
         #endregion
 
         #region Methods
-        
+
         public virtual Tenant GetTenantById(int tenantId)
         {
             if (tenantId == 0)
                 return null;
-            
+
             return _tenantRepository.GetById(tenantId);
         }
-         
+
         /// <summary>
         /// 
         /// </summary>
@@ -46,7 +46,7 @@ namespace Rms.Services.Tenants
             if (tenant == null)
                 throw new ArgumentNullException("tenant");
             _tenantRepository.Delete(tenant);
-           
+
             //event notification
             _eventPublisher.EntityDeleted(tenant);
         }
@@ -61,7 +61,7 @@ namespace Rms.Services.Tenants
         public virtual IPagedList<Tenant> GetAllTenantss(int pageIndex, int pageSize, bool showHidden = false)
         {
             var query = _tenantRepository.Table;
-              
+
             query = query.OrderByDescending(a => a.Id);
 
             var tenants = new PagedList<Tenant>(query, pageIndex, pageSize);
@@ -99,6 +99,6 @@ namespace Rms.Services.Tenants
         }
 
         #endregion
-        
+
     }
 }
