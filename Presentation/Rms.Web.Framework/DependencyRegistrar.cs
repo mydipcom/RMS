@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Reflection;
 using System.Web;
+using Antlr.Runtime.Tree;
 using Autofac;
 using Autofac.Builder;
 using Autofac.Core;
@@ -12,6 +13,7 @@ using Rms.Core;
 using Rms.Core.Caching;
 using Rms.Core.Configuration;
 using Rms.Core.Data;
+using Rms.Core.Domain.Tenants;
 using Rms.Core.Fakes;
 using Rms.Core.Infrastructure;
 using Rms.Core.Infrastructure.DependencyManagement;
@@ -44,7 +46,7 @@ using Rms.Services.Seo;
 
 using Rms.Services.Stores;
 using Rms.Services.Tasks;
-
+using Rms.Services.Tenants;
 using Rms.Services.Topics;
 
 using Rms.Web.Framework.Mvc.Routes;
@@ -246,7 +248,9 @@ namespace Rms.Web.Framework
 
             builder.RegisterType<ExternalAuthorizer>().As<IExternalAuthorizer>().InstancePerLifetimeScope();
             builder.RegisterType<OpenAuthenticationService>().As<IOpenAuthenticationService>().InstancePerLifetimeScope();
-           
+
+            builder.RegisterType<TenantService>().As<ITenantService>().InstancePerLifetimeScope();
+            builder.RegisterType<IndustryService>().As<IIndustryService>().InstancePerLifetimeScope();
                 
             builder.RegisterType<RoutePublisher>().As<IRoutePublisher>().SingleInstance();
 
