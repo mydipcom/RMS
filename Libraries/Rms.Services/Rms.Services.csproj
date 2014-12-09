@@ -143,6 +143,8 @@
     <Compile Include="Cms\WidgetExtensions.cs" />
     <Compile Include="Cms\WidgetService.cs" />
     <Compile Include="Cms\IWidgetPlugin.cs" />
+    <Compile Include="Common\IIndustryService.cs" />
+    <Compile Include="Common\IndustryService.cs" />
     <Compile Include="Common\ISearchTermService.cs" />
     <Compile Include="Common\SearchTermService.cs" />
     <Compile Include="Common\AddressService.cs" />
@@ -268,6 +270,8 @@
     <Compile Include="Tasks\Task.cs" />
     <Compile Include="Tasks\TaskManager.cs" />
     <Compile Include="Tasks\TaskThread.cs" />
+    <Compile Include="Tenants\ITenantService.cs" />
+    <Compile Include="Tenants\TenantService.cs" />
     <Compile Include="Topics\ITopicService.cs" />
     <Compile Include="Topics\TopicService.cs" />
     <Compile Include="Web References\EuropaCheckVatService\Reference.cs">
@@ -331,6 +335,7 @@
       <CachedSettingsPropName>Nop_Services_EuropaCheckVatService_checkVatService</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
