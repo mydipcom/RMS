@@ -163,6 +163,17 @@ namespace Rms.Web.Controllers
 
         #region Methods
 
+
+        /// <summary>
+        /// Pages the header.
+        /// </summary>
+        /// <returns></returns>
+        [ChildActionOnly]
+        public ActionResult PageHeader()
+        {
+            return View(); 
+        }
+
         //page not found
         public ActionResult PageNotFound()
         {
