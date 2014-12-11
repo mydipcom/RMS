@@ -1,4 +1,5 @@
-﻿using Rms.Core.Domain.Common;
+﻿using Rms.Core;
+using Rms.Core.Domain.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,13 @@ namespace Rms.Services.Common
 
         IList<Industry> GetAllIndustries();
 
+        /// <summary>
+        /// Gets all industrys.
+        /// </summary>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <returns></returns>
+        IPagedList<Industry> GetAllIndustrys(int pageIndex, int pageSize); 
 
         void InsertIndustry(Industry industry);
 

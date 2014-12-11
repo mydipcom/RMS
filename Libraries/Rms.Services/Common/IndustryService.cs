@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Rms.Core;
 using Rms.Core.Domain.Common;
 using Rms.Core.Data;
 using Rms.Services.Logging;
@@ -88,6 +89,23 @@ namespace Rms.Services.Common
             return industries;
         }
 
+
+        /// <summary>
+        /// Gets all industrys.
+        /// </summary>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <returns></returns>
+        public IPagedList<Industry> GetAllIndustrys(int pageIndex, int pageSize)
+        {
+            var query = _industryRepository.Table;
+
+            query = query.OrderByDescending(a => a.Id);
+
+            var industry = new PagedList<Industry>(query, pageIndex, pageSize);
+            return industry;
+        }
+         
         /// <summary>
         /// 
         /// </summary>
