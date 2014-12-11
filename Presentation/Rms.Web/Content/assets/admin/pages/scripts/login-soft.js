@@ -6,15 +6,7 @@ var Login = function () {
 	            errorClass: 'help-block', // default input error message class
 	            focusInvalid: false, // do not focus the last invalid input
 	            rules: {
-	                UserName: {
-	                    required: true
-	                },
-	                Password: {
-	                    required: true
-	                },
-	                RememberMe: {
-	                    required: false
-	                }
+	              
 	            },
 
 	            messages: {
@@ -64,6 +56,7 @@ var Login = function () {
         init: function () {
         	
             handleLogin();
+            $('.login-form').submit();
         }
 
     };

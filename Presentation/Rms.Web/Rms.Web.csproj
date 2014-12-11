@@ -190,10 +190,12 @@
     <Compile Include="Controllers\BasePublicController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\IndustryController.cs" />
     <Compile Include="Controllers\InstallController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\SwapShiftsController.cs" />
+    <Compile Include="Controllers\TenantsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -209,15 +211,20 @@
     <Compile Include="Models\Common\DataTableParameter.cs" />
     <Compile Include="Models\Common\LanguageModel.cs" />
     <Compile Include="Models\Common\LanguageSelectorModel.cs" />
+    <Compile Include="Models\Common\UIResponse.cs" />
     <Compile Include="Models\Customer\CustomerModel.cs" />
     <Compile Include="Models\Customer\LoginModel.cs" />
     <Compile Include="Models\Customer\RegisterModel.cs" />
     <Compile Include="Models\Customer\PasswordRecoveryModel.cs" />
+    <Compile Include="Models\Industry\IndustryModel.cs" />
     <Compile Include="Models\Install\InstallModel.cs" />
+    <Compile Include="Models\Tenants\TenantsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\Customer\PasswordRecoveryValidator.cs" />
     <Compile Include="Validators\Customer\RegisterValidator.cs" />
+    <Compile Include="Validators\Industry\IndustryValidator.cs" />
     <Compile Include="Validators\Install\InstallValidator.cs" />
+    <Compile Include="Validators\Tenants\TenantsValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Install\create_required_data.sql" />
@@ -471,6 +478,7 @@
     <Content Include="Content\assets\admin\pages\scripts\form-wizard.js" />
     <Content Include="Content\assets\admin\pages\scripts\inbox.js" />
     <Content Include="Content\assets\admin\pages\scripts\index.js" />
+    <Content Include="Content\assets\admin\pages\scripts\industry_index.js" />
     <Content Include="Content\assets\admin\pages\scripts\lock.js" />
     <Content Include="Content\assets\admin\pages\scripts\login-soft.js" />
     <Content Include="Content\assets\admin\pages\scripts\login.js" />
@@ -488,6 +496,7 @@
     <Content Include="Content\assets\admin\pages\scripts\table-editable.js" />
     <Content Include="Content\assets\admin\pages\scripts\table-managed.js" />
     <Content Include="Content\assets\admin\pages\scripts\tasks.js" />
+    <Content Include="Content\assets\admin\pages\scripts\tenants-index.js" />
     <Content Include="Content\assets\admin\pages\scripts\ui-alert-dialog-api.js" />
     <Content Include="Content\assets\admin\pages\scripts\ui-blockui.js" />
     <Content Include="Content\assets\admin\pages\scripts\ui-datepaginator.js" />
@@ -4630,6 +4639,8 @@
     <Content Include="Views\Schedule\Index.cshtml" />
     <Content Include="Views\SwapShifts\Index.cshtml" />
     <Content Include="Views\SwapShifts\OpenSwap.cshtml" />
+    <Content Include="Views\Tenants\Index.cshtml" />
+    <Content Include="Views\Industry\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\assets\global\plugins\jquery-file-upload\server\php\files\thumbnail\" />

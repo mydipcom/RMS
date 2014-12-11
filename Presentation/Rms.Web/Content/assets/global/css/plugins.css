@@ -966,6 +966,11 @@ Extended pagination
   position: static !important;
 }
 
+
+.dataTables_extended_wrapper div.pagelist {
+    float: right;
+}
+
 @media (max-width: 480px) {
   .dataTables_extended_wrapper div.dataTables_paginate,
   .dataTables_extended_wrapper div.dataTables_length,

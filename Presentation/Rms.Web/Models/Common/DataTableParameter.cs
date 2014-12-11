@@ -6,5 +6,10 @@
         public int draw { get; set; }
         public int length { get; set; }
         public int action { get; set; }
+
+        public int pagecurrent
+        {
+            get { return start/length; }
+        }
     }
 }
