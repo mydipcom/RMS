@@ -1,10 +1,12 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using System.Web.Routing;
 using Rms.Core.Infrastructure;
 using Rms.Web.Framework;
 using Rms.Web.Framework.Controllers;
 using Rms.Web.Framework.Security;
 using Rms.Web.Framework.Seo;
+using Rms.Web.Models.Common;
 
 namespace Rms.Web.Controllers
 {
@@ -24,5 +26,16 @@ namespace Rms.Web.Controllers
             return new EmptyResult();
         }
 
+
+        protected virtual JsonResult Success()
+        {
+            return Json(new UIResponse(true));
+        }
+
+
+        protected virtual JsonResult Fail(IList<string> msgs)
+        {
+            return Json(new UIResponse(false, msgs));
+        }
     }
 }
