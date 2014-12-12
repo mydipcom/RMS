@@ -1,265 +1,908 @@
 ﻿@{
-    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
 }
 
-@section PageStyle{
-    <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
-    <link href="/Content/assets/global/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" type="text/css" />
-    <link href="/Content/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
-    <link href="/Content/assets/global/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
-    <link href="/Content/assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
-    <!-- END PAGE LEVEL PLUGIN STYLES -->
-    <!-- BEGIN PAGE STYLES -->
-    <link href="/Content/assets/admin/pages/css/tasks.css" rel="stylesheet" type="text/css" />
-    <!-- END PAGE STYLES -->
-}
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+<body class="page-header-fixed page-quick-sidebar-over-content page-full-width"> 
+    <!-- BEGIN HEADER -->
+    <div>
+        <!-- BEGIN HEADER INNER -->
+        <header>
+            <div id="nav-bar" class="sticky">
+                <a href="Index" alt="When I Work Employee Scheduling Software" id="logo_link"><img class="logo" src="http://wheniwork.com/images/when-i-work-employee-scheduling-software-logo.svg"></a>
+                <!-- <div class="hiring-info" style="display:inline-block;vertical-align:middle;"> <div class="hiring-arrow-left"></div><div class="hiring-btn" style="width:90px;display:inline-block;vertical-align: top;"><a href="http://careers.thisclicks.com" target="_blank">We're Hiring!</a></div></div> -->
+                <div class="right-nav">
+                    <div class="nav-items gray">
+                        <a href="http://wheniwork.com/pricing" title="Sign Up For Scheduling" class="scheduling-link-grey">Pricing &amp; Signup</a>
+                        <a href="../Customer/Register" target="_blank" title="Employee Registration" class="registration-link-grey show-large">Employee Registration</a>
+                        <a href="../Customer/Register" target="_blank" title="Refer a Friend" class="refer-link-grey show-large">Refer a Friend &amp; Get $50</a>
+                        <a href="../Customer/Login" class="login-link-grey">Login</a>
+                    </div>
+                    <img src="http://wheniwork.com/images/menu.svg" class="menu" id="menu-icon">
+                </div>
+            </div>
+        </header>
+        <!-- END HEADER INNER -->
+    </div>
+    <!-- END HEADER -->
+    <div class="clearfix">
+    </div>
+    <!-- BEGIN CONTAINER -->
+    <div class="page-container1">
+
+        <!-- BEGIN CONTENT -->
+        <div class="page-content-wrapper1">
+            <div class="page-content1">
+
+                <!-- BEGIN PAGE CONTENT-->
+                <div class="container1">
+
+                    <!-- Main When I Work Homepage Template -->
+                    <!-- White Feature Page -->
+                    <div class="white-feature">
+                        <div class="row content">
+                            <div class="wrap-noTable">
+                                <div class="center-text">
+                                    <h2>
+                                        Schedule next week in minutes.It's free.
+                                    </h2>
+                                    <h1 class="small hide-small" style="color:#777">
+                                        Employee Scheduling Software
+                                    </h1>
+                                    <h3>
+                                        The easiest way to schedule and communicate with your hourly employees.<br>
+                                        Save tons of time and reduce absenteeism. It's free for 30 days.
+                                    </h3>
+
+                                    <!-- <div class="buttonwrap" style="padding-top:30px">
+                          <a href="#scheduling-signup" title="Sign Up For Employee Scheduling Software" class="open-popup fancybox btn-green btn-signup">Start Scheduling</a>
+                          <a href="//fast.wistia.net/embed/iframe/pf6f51k0eq?popover=true"" class="wistia-popover[height=506,playerColor=7b796a,width=900] btn-gray play-btn" style="padding-left: 18px; padding-right: 16px; margin-left: 18px;"><i class="fa fa-play"></i></a>
+                        </div>  -->
+
+                                    <form class="signup-form form-signup hide-small">
+                                        <div class="field field-name" style="display:inline">
+                                            <input type="text" id="name" name="name" placeholder="Full Name">
+                                        </div>
+                                        <div class="field field-email" style="display:inline;">
+                                            <input type="email" name="email" placeholder="Email Address">
+                                        </div>
+                                        <div style="display:inline-block;width:29%;position:relative">
+                                            <input type="hidden" name="ref_page" value="homepage">
+                                            <input type="hidden" name="trial_length" value="30">
+                                            <input type="hidden" name="coupon" value="">
+                                            <input type="submit" class="solid-btn-green submit_b" style="width:100%" value="Start Scheduling">
+                                            <input type="submit" class="solid-btn-green create-loading" style="width:100%;display:none" value="Start Scheduling">
+                                            <div class="create-loading" style="display:none;">
+                                                Creating Account <span class="dot-anim">.</span><span class="dot-anim">.</span><span class="dot-anim">.</span>
+                                                <script>
+                                                    $(window).load(function () {
+                                                        $('.create-loading span').addClass('dot-anim');
+                                                    });
+                                                </script>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <a href="//fast.wistia.net/embed/iframe/smiu2bjcmq?popover=true" class="wistia-popover[height=506,playerColor=7b796a,width=900] video-text">Watch Video</a>
+                                    <div class="mobile-actions show-small">
+                                        <a href="http://wheniwork.com/signup" class="solid-btn-green">Start Scheduling</a>
+                                        <a href="http://wheniwork.com/getmobile" class="btn-gray">Get The App</a>
+                                        <a href="//fast.wistia.net/embed/iframe/pf6f51k0eq" class="btn-gray">Watch Video</a>
+                                    </div>
+                                    <!-- Play button to go here -->
+
+                                    <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/popover-v1.js"></script>
+                                    <!-- Or Attend a Demo Today -->
+                                </div>
+                                <div class="monitor">
+                                    <img src="http://wheniwork.com/images/home-monitor.png" alt="Employee scheduling software manage hourly workforce with shift planning app">
+                                </div>
+                            </div>
+                            <!-- Disabling until we test the need for it <a class="arrow-learn-more hide-small" title="Learn More"><img src="http://wheniwork.com/images/arrow-learn-more.svg"></a> -->
+                        </div>
+                    </div>
+                    <script>
+                        $(function () {
+                            if (Modernizr.input.placeholder)
+                                $('#name').focus();
+                        });
+                        $(document).ready(function () {
+                            $('.arrow-learn-more').click(function () {
+                                scrollPageTo($('.white-feature'), 400, $('.white-feature').innerHeight());
+                            });
+                        });
+                    </script>
+                    <div class="clearfix"></div>
+
+                    <!-- Social Proof -->
+                    <div class="social-proof">
+                        <div class="row content">
+                            <h2 class="social-proof-header">Over 7,000 Happy Customers Worldwide</h2>
+                            <p class="social-proof-header">
+                                You're in good company! Nearly half a million people in over 50 countries rely on<br class="hide-small">
+                                When I Work for employee scheduling, time clock and communication.
+                            </p>
+                            <div class="quotes-container small-12 small-centered columns">
+                                <div class="quote">
+                                    <div class="quote-text">
+                                        <p>“I've been searching the internet for years for a good scheduling program and I've found nothing even close to what you have with When I Work.”</p>
+                                        <p class="name">Mike Koelzer</p>
+                                        <p class="company">Kay Pharmacy</p>
+                                        <!-- <a class="btn-gray">Hear From Mike</a> -->
+                                        <div class="quote-photo quote1"></div>
+                                    </div>
+                                </div>
+                                <div class="quote">
+                                    <div class="quote-text">
+                                        <p>“I have been able to take my employee scheduling from 8 hours a week to merely 15 minutes a week thanks to how easy it is to use When I Work.”</p>
+                                        <p class="name">Donna Rea</p>
+                                        <p class="company">Caring Transitions</p>
+                                        <!-- <a class="btn-gray">Hear From Donna</a> -->
+                                        <div class="quote-photo quote2"></div>
+                                    </div>
+                                </div>
+                                <div class="quote" style="position:relative;top:-24px">
+                                    <div class="quote-text">
+                                        <p>“When I Work was a no brainer for my business. Setup literally took minutes and the interface was extremely intuitive.”</p>
+                                        <p class="name">Jay Miller</p>
+                                        <p class="company">Comfort Dental</p>
+                                        <!-- <a class="btn-gray">Hear From Chris</a> -->
+                                        <div class="quote-photo quote3"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rule"></div>
+                            <div class="customers-container">
+                                <div class="customer logo-1">
+                                    <img src="../../content/assets/admin/pages/img/01.jpg" alt="Testing alt tag" class="">
+                                    <!-->
+                        <img src="../images/customers/24.jpg" class="" style="display: none;">
+                        <img src="../images/customers/12.jpg" class="active" style="display:none;">
+                        <img src="../images/customers/04.jpg" class="" style="display: none;">
+                        <!-->
+                                </div>
+                                <div class="customer logo-2">
+                                    <img src="../../content/assets/admin/pages/img/27.jpg" class="">
+                                    <!-->
+                        <img src="../images/customers/02.jpg" class="" style="display: none;">
+                        <img src="../images/customers/28.jpg" class="active" style="display: none;">
+                        <img src="../images/customers/18.jpg" class="" style="display: none;">
+                            <!-->
+                                </div>
+                                <div class="customer logo-3">
+                                    <img src="../../content/assets/admin/pages/img/03.jpg" class="" style="display: block;">
+                                    <!-->
+                        <img src="../images/customers/10.jpg" class="active" style="display:none;">
+                        <img src="../images/customers/16.jpg" class="" style="display: none;">
+                        <img src="../images/customers/22.jpg" class="" style="display: none;">
+                            <!-->
+                                </div>
+                                <div class="customer logo-4">
+                                    <img src="../../content/assets/admin/pages/img/21.jpg" class="" style="display:block;">
+                                    <!-->
+                        <img src="../images/customers/29.jpg" class="" style="display: none;">
+                        <img src="../images/customers/05.jpg" class="active" style="display: none;">
+                        <img src="../images/customers/11.jpg" class="" style="display: none;">
+                            <!-->
+                                </div>
+                                <div class="customer logo-5">
+                                    <img src="../../content/assets/admin/pages/img/06.jpg" class="" style="display: block;">
+                                    <!-->
+                        <img src="../images/customers/25.jpg" class="active" style="display: none;">
+                        <img src="../images/customers/13.jpg" class="" style="display: none;">
+                        <img src="../images/customers/07.jpg" class="" style="display: none;">
+                            <!-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
-@section PageScript{
+                    <div class="clearfix"></div>
 
-    <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <script src="/Content/assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
-    <script src="/Content/assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
-    <script src="/Content/assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
-    <script src="/Content/assets/global/plugins/jquery.pulsate.min.js" type="text/javascript"></script>
-    <script src="/Content/assets/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>
-    <script src="/Content/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
-    <!-- IMPORTANT! fullcalendar depends on jquery-ui-1.10.3.custom.min.js for drag & drop support -->
-    <script src="/Content/assets/global/plugins/fullcalendar/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-    <script src="/Content/assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
-    <script src="/Content/assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-    <script src="/Content/assets/global/plugins/gritter/js/jquery.gritter.js" type="text/javascript"></script>
-    <!-- END PAGE LEVEL PLUGINS -->
-    <!-- BEGIN PAGE LEVEL SCRIPTS -->
-    <script src="/Content/assets/admin/pages/scripts/index.js" type="text/javascript"></script>
-    <script src="/Content/assets/admin/pages/scripts/tasks.js" type="text/javascript"></script>
-    <!-- END PAGE LEVEL SCRIPTS -->
+                    <!-- Mobile Explore -->
+                    <div class="mobile-explore-section">
+                        <a class="close-mobile-explore"><img src="http://wheniwork.com/images/close-screen-dark.svg" alt="Close"></a>
+                        <div class="row content">
+                            <div class="explore-text">
+                                <h2>Mobile Scheduling</h2>
+                                <p>Run your business from your pocket with apps for iPhone &amp; Android. Make changes and fill shifts in seconds.</p>
+                                <a href="http://wheniwork.com/mobile-scheduling-apps" class="btn-gray">Learn More</a>
+                            </div>
+                            <div class="mobile-explore-image">
+                                <img class="mobile-explore-iphone" src="../../content/assets/admin/pages/img/employee-scheduling-app-for-iphone-or-android-with-online-schedule-maker-for-mobile.png" alt="online schedule maker for mobile scheduling app on iPhone and Android">
+                                <img class="mobile-explore-bg" src="../../content/assets/admin/pages/img/mobile-explore-bg.jpg">
+                                <div class="fade fade1 bottom-left-arrow">
+                                    <p>Approve employee shift trade requests from your mobile phone.</p>
+                                </div>
+                                <div class="fade fade3 bottom-right-arrow">
+                                    <p>See the entire schedule, or see who's working right now.</p>
+                                </div>
+                                <div class="fade fade4 bottom-left-arrow">
+                                    <p>Create Open Shift requests on the go so you can always make sure you have enough staff.</p>
+                                </div>
+                                <div class="fade fade2 top-right-arrow">
+                                    <p>Employees get shift notifications so you always know when you work.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        var EXPAND_DURATION = 400;
+                        var EXPLORE_TEXT_FADE_DURATION = 300;
+                        var DELAY_BEFORE_FADE_BOXES = 100;
+                        var FADE_BOXES_FADE_DELAY = 100;
+
+                        $(document).ready(function () {
+                            function expandExplore() {
+                                scrollPageTo($('.mobile-explore-section'), EXPAND_DURATION);
+
+                                $('.mobile-explore-section').addClass('expanded', EXPAND_DURATION);
+                                $('.explore-text').addClass('expanded');
+                                $('.mobile-explore-image').addClass('expanded', EXPAND_DURATION);
+
+                                $('header').fadeOut(EXPAND_DURATION);
+                                $('.close-mobile-explore').addClass('visible');
+                                setTimeout(function () { $('.fade1').addClass('visible') }, EXPAND_DURATION);
+                                setTimeout(function () { $('.fade3').addClass('visible') }, EXPAND_DURATION + 100);
+                                setTimeout(function () { $('.fade4').addClass('visible') }, EXPAND_DURATION + 200);
+                                setTimeout(function () { $('.fade2').addClass('visible') }, EXPAND_DURATION + 300);
+                            }
+
+                            function collapseExplore() {
+                                scrollPageTo($('.mobile-explore-section'), EXPAND_DURATION, -100);
+
+                                $('header').fadeIn(EXPAND_DURATION);
+                                $('.mobile-explore-section').removeClass('expanded', EXPAND_DURATION);
+                                $('.explore-text').removeClass('expanded');
+                                $('.mobile-explore-image').removeClass('expanded', EXPAND_DURATION);
+                                $('.close-mobile-explore').removeClass('visible');
+                                $('.fade').removeClass('visible');
+                            }
+
+                            $('#mobile_explore_link').click(function () { expandExplore() });
+                            $('.close-mobile-explore').click(function () { collapseExplore() });
+
+                            $(window).resize(function () {
+                                if ($(window).width() <= 1024 && $('.mobile-explore-section').hasClass('expanded')) {
+                                    collapseExplore();
+                                }
+                            });
+                        });
+
+                        $(document).scroll(function () {
+                            if ($('.mobile-explore-section').hasClass('expanded') && !isOnscreen($('.mobile-explore-section'))) {
+                                fadeInHeader();
+                            }
+                        });
+                    </script>
+                    <div class="clearfix"></div>
+                    <!-- Employee scheduling -->
+                    <div class="scheduling-block parallax hide-small" data-parallax-ratio="0.25">
+                        <div class="row content">
+                            <h2>Employee Scheduling Software. Reinvented.</h2>
+                            <a href="http://wheniwork.com/employee-scheduling-software" alt="Learn More About Employee Scheduling Software" class="btn-white">Learn More</a>
+                            <div class="scheduling-screen parallax" data-parallax-type="position" data-parallax-ratio="-0.15" data-parallax-offset="250">
+                                <img src="http://wheniwork.com/images/employee-scheduling-software-screenshot-of-the-staff-scheduler-for-when-i-work.png" alt="Employee Scheduling Software - screenshot of the shift planning and workforce management staff scheduler for When I Work">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Time & Attendance -->
+                    <div class="time-attendance hide-small">
+                        <div class="row content">
+                            <div class="left-content small-only-text-center">
+                                <h2>Employee <span class="nowrap">Time Clock</span><br>For Small Businesses</h2>
+                                <a href="http://wheniwork.com/time-clock-software" alt="Learn More About Time Clock Software" class="btn-darkgray">Learn More</a>
+                            </div>
+                            <div class="right-content"><img src="http://wheniwork.com/images/time-clock-software-screenshot-for-managing-hourly-workforce-attendance.png" alt="Mobile Time Clock"></div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    <!-- Mobile -->
+                    <div class="mobile parallax hide-small" data-parallax-ratio="0.7">
+                        <div class="row content">
+                            <div class="mobile-phone parallax" data-parallax-type="position" data-parallax-ratio="0.5" data-parallax-offset="200">
+                                <div class="mobile-lady"></div>
+                                <div class="mobile-alert" style="display: block;"></div>
+                            </div>
+                            <div class="mobile-text">
+                                <h2>Put the schedule in everyone's pocket.</h2>
+                                <p>Schedule and communicate with your employees from your Android or iPhone. Your employees can request <a href="/features#shifttrades">shift trades</a> and <a href="/features#timeoff">time off</a>.</p>
+                                <div class="buttonwrap">
+                                    <a href="http://wheniwork.com/mobile-scheduling-apps" alt="Learn More About Mobile Apps for Employee Scheduling" class="btn-gray">Learn More</a>
+                                    <span class="nowrap">
+                                        <a title="When I Work for iPhone" href="http://wheniwork.com/mobile-scheduling-apps" target="_blank"><img class="store-icon" src="http://wheniwork.com/images/apple-store.svg" alt="Apple App Store"></a>
+                                        <a title="When I Work for Android" href="http://wheniwork.com/mobile-scheduling-apps" target="_blank"><img class="store-icon" src="http://wheniwork.com/images/android-store.svg" alt="Google Play Store Android"></a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script>
+                        $(document).ready(function () {
+                            var activatePosition = $('.mobile').offset().top - 300;
+                            $(document).scroll(function () {
+                                if ($(document).scrollTop() > activatePosition)
+                                    $('.mobile-alert').fadeIn(100);
+                            });
+                        });
+                    </script>
+
+                    <!-- Try it free -->
+                    <div class="try-free ">
+                        <video id="try-free-video" preload="auto" muted="true" loop="">
+                            <source src="http://wheniwork.com/videos/wiw-scheduling-demo.webm" type="video/webm">
+                            <source src="http://wheniwork.com/videos/wiw-scheduling-demo.mp4" type="video/mp4">
+                        </video>
+                        <div class="row content">
+                            <h2>Try It Free for 30 Days</h2>
+                            <p>No credit card required.</p>
+                            <a href="http://wheniwork.com/signup" title="Sign Up For Scheduling" class="open-popup btn-white show-small">Start Scheduling</a>
+                            <a href="#scheduling-signup" title="Sign Up For Scheduling" class="open-popup btn-white hide-small" data-toggle="modal"
+                               data-target="#myModal">Start Scheduling</a>
+                        </div>
+                    </div>
+
+                    <!-- End try it free -->
+
+
+                </div>
+                <!-- END PAGE CONTENT-->
+            </div>
+        </div>
+        <!-- END CONTENT -->
+
+    </div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN FOOTER -->
+
+    <footer class="row">
+        <!-- Footer File -->
+
+        <div class="footer-icons">
+            <a href="https://www.facebook.com/wheniwork" title="Facebook Link" target="_blank">
+                <img src="../Content/assets/admin/layout/img/facebook.svg" alt="Connect with us on Facebook">
+            </a>
+            <a href="https://twitter.com/wheniwork" target="_blank">
+                <img src="../Content/assets/admin/layout/img/twitter.svg">
+            </a>
+            <a href="https://plus.google.com/+Wheniwork-Employee-Scheduling" target="_blank">
+                <img src="../Content/assets/admin/layout/img/googleplus.svg">
+            </a>
+            <a href="https://www.linkedin.com/company/thisclicks" target="_blank">
+                <img src="../Content/assets/admin/layout/img/linkedin.svg">
+            </a>
+            <a href="http://www.pinterest.com/wheniwork/" target="_blank">
+                <img src="../Content/assets/admin/layout/img/pinterest.svg">
+            </a>
+            <a href="http://instagram.com/wheniwork" target="_blank">
+                <img src="../Content/assets/admin/layout/img/instagram.svg">
+            </a>
+        </div>
+        <div>
+            <p class="footer-text">
+                <span class="nowrap">© 2014 When I Work, Inc.</span>&nbsp;&nbsp;•&nbsp; <span class="nowrap">All Rights Reserved</span>&nbsp;&nbsp;•&nbsp;
+                <a class="nowrap" href="http://wheniwork.com/privacy">Privacy Policy</a>&nbsp;&nbsp;•&nbsp; <a class="nowrap" href="http://wheniwork.com/terms">Terms of Service</a>
+                &nbsp;&nbsp;•&nbsp; <a href="http://careers.thisclicks.com" target="_blank" class="nowrap">Careers</a>&nbsp;&nbsp;•&nbsp;
+                <a href="http://wheniwork.com/blog/employee-scheduling-excel-template/" target="_blank" class="nowrap">Scheduling Excel Template</a>&nbsp;&nbsp;•&nbsp;
+                <a href="http://wheniwork.com/sitemap" class="nowrap">Sitemap</a>
+            </p>
+        </div>
+        <div class="rule"></div>
+        <div id="demo-loading" class="mfp-hide">
+            <div class="rw-words">
+                <span>Setting up work schedule...</span>
+                <span>Setting up employees &amp; positions...</span>
+                <span>Reducing headaches...</span>
+                <span>Saving time and money...</span>
+                <span>Retrieving schedule...</span>
+            </div>
+            <div id="progress"><div id="pbaranim"></div></div>
+        </div>
+        <script src="http://wheniwork.com/js/validate.js"></script>
+
+
+        <script src="http://wheniwork.com/js/rem.min.js" type="text/javascript"></script>
+        <script>
+            function fadeOutHeader(duration) {
+                var FADE_DURATION = 400; // jQuery default
+                if (duration)
+                    FADE_DURATION = duration;
+                $('header').fadeOut(FADE_DURATION);
+            }
+            function fadeInHeader(duration) {
+                var FADE_DURATION = 400; // jQuery default
+                if (duration)
+                    FADE_DURATION = duration;
+                $('header').fadeIn(FADE_DURATION);
+            }
+            function focusFieldOnLoad(field) {
+                if (Modernizr.input.placeholder)
+                    $(field).focus();
+            }
+
+            function attachPIE() {
+                if (window.PIE) {
+                    $('*').filter(function () {
+                        return $(this).css('border-radius').charAt(0) != '0';
+                    }).each(function () {
+                        PIE.attach(this);
+                    });
+                }
+            }
+
+            $(document).ready(function () {
+
+                // Lightbox
+                /*    $('.open-popup').magnificPopup({
+                        type: 'inline',
+                        closeMarkup: "<a class=\"close-popup\" onclick=\"$.magnificPopup.close();\"><img src=\"http://wheniwork.com/images/close-popup.svg\"></a>",
+                        midClick: true
+                    });
+                    $('.vimeo-popup').magnificPopup({
+                        type: 'iframe',
+                        closeMarkup: "<a class=\"close-popup\" onclick=\"$.magnificPopup.close();\"><img src=\"http://wheniwork.com/images/close-popup.svg\"></a>",
+                        midClick: true
+                    });*/
+
+                // Menu
+                var MENU_EXPAND_DURATION = 150;
+                $('#menu-icon').click(function () {
+
+
+                    // $('#menu').toggle();
+
+                    $('#menu').addClass('expanded', MENU_EXPAND_DURATION);
+                    $('.nav-items.gray').addClass('hidden', MENU_EXPAND_DURATION);
+                    $('#menu-icon').fadeOut(MENU_EXPAND_DURATION);
+                });
+                $('#white-menu-icon').click(function () {
+                    $('#menu').removeClass('expanded', MENU_EXPAND_DURATION);
+                    $('.nav-items.gray').removeClass('hidden', MENU_EXPAND_DURATION);
+                    $('#menu-icon').fadeIn(MENU_EXPAND_DURATION);
+                });
+
+
+                // Modernizr tests
+                if (!Modernizr.svg) {
+                    $("img[src$='.svg']").each(function (i, element) {
+                        $(this).attr('src', $(this).attr('src').replace(".svg", ".png"));
+                    });
+                }
+                if ("unknown".indexOf('ios') != -1 || !Modernizr.video) {
+                    $('video').each(function (i, element) {
+                        $(this).parents('.try-free').css({
+                            'background-image': "url('" + $(this).find("source[src$='.mp4']").attr('src').replace('.mp4', '.jpg') + "')",
+                            'background-size': 'cover'
+                        });
+                    });
+                    $('video').remove();
+                }
+                if (!Modernizr.input.placeholder) {
+                    $('input[placeholder]').each(function () {
+                        $(this).addClass('placeholder');
+                        $(this).val($(this).attr('placeholder'));
+                        $(this).on({
+                            focus: function () {
+                                if ($(this).val() == $(this).attr('placeholder')) {
+                                    $(this).val('');
+                                    $(this).removeClass('placeholder');
+                                }
+                            },
+                            blur: function () {
+                                if ($(this).val() == '') {
+                                    $(this).val($(this).attr('placeholder'));
+                                    $(this).addClass('placeholder');
+                                }
+                            }
+                        });
+                    });
+                }
+                Modernizr.load([
+                    {
+                        test: Modernizr.borderradius,
+                        nope: "http://wheniwork.com/js/PIE/PIE.js",
+                        complete: function () {
+                            attachPIE();
+                        }
+                    },
+                ]);
+
+                // FastClick
+                FastClick.attach(document.body);
+            });
+
+        </script>
+
+        <!--Start of Zopim Live Chat Script-->
+        <script type="text/javascript">
+            window.$zopim || (function (d, s) {
+                var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
+                d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
+                    z.set.
+                    _.push(o)
+                }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute('charset', 'utf-8');
+                $.src = '//v2.zopim.com/?2Z49OogQqWOppQIpMOU0xnmqODo124Hp'; z.t = +new Date; $.
+                type = 'text/javascript'; e.parentNode.insertBefore($, e)
+            })(document, 'script');
+        </script>
+        <script>
+            $zopim(function () {
+                $zopim.livechat.departments.filter('General Questions');
+            });
+        </script>
+
+        <!--End of Zopim Live Chat Script-->
+        <!-- FOOTER TRACKING CODES-->
+        <!-- Lucky Orange -->
+        <!--
+        <script type='text/javascript'>
+            window.__wtw_lucky_site_id = 24650;
+
+            (function() {
+                var wa = document.createElement('script'); wa.type = 'text/javascript'; wa.async = true;
+                wa.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://cdn') + '.luckyorange.com/w.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(wa, s);
+            })();
+        </script>
+        -->
+        <!-- Adroll -->
+        <script type="text/javascript">
+            adroll_adv_id = "FUD5J2BAZBBC5LLVAWN4HX";
+            adroll_pix_id = "EEF3UL6CENHP3F4U2EZYQD";
+            (function () {
+                var oldonload = window.onload;
+                window.onload = function () {
+                    __adroll_loaded = true;
+                    var scr = document.createElement("script");
+                    var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+                    scr.setAttribute('async', 'true');
+                    scr.type = "text/javascript";
+                    scr.src = host + "/j/roundtrip.js";
+                    ((document.getElementsByTagName('head') || [null])[0] ||
+                        document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+                    if (oldonload) { oldonload() }
+                };
+            }());
+        </script>
+
+        <!-- Retargeter -->
+        <img src="http://ad.retargeter.com/seg?add=439205&amp;t=2" width="1" height="1">
+
+        <!-- Google Ads -->
+        <script type="text/javascript">
+            /* <![CDATA[ */
+            var google_conversion_id = 1064708289;
+            var google_custom_params = window.google_tag_params;
+            var google_remarketing_only = true;
+            /* ]]> */
+        </script>
+        <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js"></script><iframe name="google_conversion_frame" title="Google conversion frame" width="300" height="13" src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/1064708289/?random=1418088476821&amp;cv=7&amp;fst=1418088476821&amp;num=1&amp;fmt=1&amp;guid=ON&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=11&amp;u_tz=480&amp;u_java=true&amp;u_nplug=27&amp;u_nmime=39&amp;frm=0&amp;url=http%3A//wheniwork.com/%3Futm_expid%3D82000332-9.au63AZf0Qqy1gDY9-0DuRQ.0&amp;ref=http%3A//wheniwork.com/&amp;vis=1" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no">&lt;img height="1" width="1" border="0" alt="" src="http://googleads.g.doubleclick.net/pagead/viewthroughconversion/1064708289/?frame=0&amp;random=1418088476821&amp;cv=7&amp;fst=1418088476821&amp;num=1&amp;fmt=1&amp;guid=ON&amp;u_h=1080&amp;u_w=1920&amp;u_ah=1040&amp;u_aw=1920&amp;u_cd=24&amp;u_his=11&amp;u_tz=480&amp;u_java=true&amp;u_nplug=27&amp;u_nmime=39&amp;frm=0&amp;url=http%3A//wheniwork.com/%3Futm_expid%3D82000332-9.au63AZf0Qqy1gDY9-0DuRQ.0&amp;ref=http%3A//wheniwork.com/&amp;vis=1" /&gt;</iframe>
+        <noscript>
+            &lt;div style="display:inline;"&gt;
+            &lt;img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1064708289/?value=0&amp;amp;guid=ON&amp;amp;script=0"/&gt;
+            &lt;/div&gt;
+        </noscript>
+
+        <!-- Twitter -->
+        <!-- Twitter has been hanging. this is a temporary fix.
+        <script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            twttr.conversion.trackPid('l47uk');
+        </script>
+        <noscript>
+            <img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=l47uk&p_id=Twitter" />
+        </noscript>
+        -->
+        <!-- Perfect Audience -->
+        <script type="text/javascript">
+            (function () {
+                window._pa = window._pa || {};
+                // _pa.orderId = "myOrderId"; // OPTIONAL: attach unique conversion identifier to conversions
+                // _pa.revenue = "19.99"; // OPTIONAL: attach dynamic purchase values to conversions
+                // _pa.productId = "myProductId"; // OPTIONAL: Include product ID for use with dynamic ads
+                var pa = document.createElement('script'); pa.type = 'text/javascript'; pa.async = true;
+                pa.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + "//tag.perfectaudience.com/serve/52f8f4238fe4a0723c000153.js";
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(pa, s);
+            })();
+        </script>
+
+        <!-- The Facebook -->
+        <script>
+            (function () {
+                var _fbq = window._fbq || (window._fbq = []);
+                if (!_fbq.loaded) {
+                    var fbds = document.createElement('script');
+                    fbds.async = true;
+                    fbds.src = '//connect.facebook.net/en_US/fbds.js';
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(fbds, s);
+                    _fbq.loaded = true;
+                }
+                _fbq.push(['addPixelId', '521023431349709']);
+            })();
+            window._fbq = window._fbq || [];
+            window._fbq.push(['track', 'PixelInitialized', {}]);
+        </script>
+        <noscript>&lt;img height="1" width="1" alt="" style="display:none" src="https://www.facebook.com/tr?id=521023431349709&amp;amp;ev=NoScript" /&gt;</noscript>
+
+        <!-- BIZO -->
+        <script type="text/javascript">
+            _bizo_data_partner_id = "6928";
+        </script>
+        <script type="text/javascript">
+            (function () {
+                var s = document.getElementsByTagName("script")[0];
+                var b = document.createElement("script");
+                b.type = "text/javascript";
+                b.async = true;
+                b.src = (window.location.protocol === "https:" ? "https://sjs" : "http://js") + ".bizographics.com/insight.min.js";
+                s.parentNode.insertBefore(b, s);
+            })();
+        </script>
+        <noscript>
+            &lt;img height="1" width="1" alt="" style="display:none;" src="//www.bizographics.com/collect/?pid=6928&amp;fmt=gif" /&gt;
+        </noscript>
+
+
+        <!-- END FOOTER TRACKING CODES -->
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                function ValidatePhone(phoneVal) {
+                    var phoneRegExp = /^((\+)?[1-9]{1,2})?([-\s\.])?((\(\d{1,4}\))|\d{1,4})(([-\s\.])?[0-9]{1,12}){1,2}$/;
+                    var numbers = phoneVal.length;
+                    if (10 <= numbers && numbers <= 20 && phoneRegExp.test(phoneVal)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+                $('.text-form-submit').click(function (event) {
+                    event.preventDefault();
+                    var form = $(this).closest('form');
+                    var phoneNum = $("input[name='textPhone']", form).val();
+                    // alert($("input[name='textPhone']",form).val());
+                    if (ValidatePhone(phoneNum)) {
+
+                        form.find('.textPhone').hide();
+                        form.find('.text-form-submit').hide();
+                        form.find('.text-loading').show();
+                        $.ajax({
+                            url: '/text/textMe',
+                            type: 'POST',
+                            data: { phone: phoneNum },
+                            success: function () {
+                                form.find('.text-loading').hide();
+                                form.find('.text-loaded').show();
+                            },
+                            error: function () {
+                                alert("Sorry, there was an error processing your request. Please try again!");
+                                form.find('.textPhone').show();
+                                form.find('.text-form-submit').show();
+                                form.find('.text-loading').hide();
+                            }
+
+                        });
+                    } else {
+                        $(this).find('.textPhone').addClass('error');
+                    }
+
+
+                });
+
+            });
+
+
+        </script>
+
+
+    </footer>
+
+
+    <!-- END FOOTER -->
+    <!--BEGIN SIDEBAR MENU-->
+
+    <div id="menu">
+        <div id="top-nav-block">
+            <div class="nav-items">
+                <a href="http://wheniwork.com/signup" title="Sign Up For Scheduling">Start Scheduling</a>
+                <a href="http://wheniwork.com/login" class="white-login-link">Login</a>
+            </div>
+            <img src="http://wheniwork.com/images/close-menu.svg" class="menu" id="white-menu-icon">
+        </div>
+        <div class="clearfix"></div>
+
+        <div id="main-menu-items">
+            <ul>
+                <li>
+                    <a href="http://wheniwork.com/employee-scheduling-software" class="main-nav-item" id="SchedulingLink" title="Employee Scheduling Software">Employee Scheduling</a>
+                </li>
+                <li>
+                    <a href="http://wheniwork.com/time-clock-software" class="main-nav-item" id="AttendanceLink" title="Timeclock and Attendance Software">Staff Time Clock</a>
+                </li>
+                <li>
+                    <a href="http://wheniwork.com/mobile-scheduling-apps" class="main-nav-item" id="MobileLink" title="Mobile Scheduling And Attendance Apps">Mobile Apps</a>
+                </li>
+                <li>
+                    <a href="http://wheniwork.com/features" class="main-nav-item" id="FeaturesLink" title="Features">Features</a>
+                </li>
+                <li>
+                    <a href="http://wheniwork.com/pricing" class="main-nav-item" id="PricingLink" title="Pricing">Price</a>
+                </li>
+            </ul>
+
+
+        </div>
+        <div class="clearfix"></div>
+        <div class="padder"></div>
+        <div class="rule-grey"></div>
+        <div class="padder"></div>
+        <div class="clearfix"></div>
+        <div id="menu-nav-bottom">
+            <ul>
+                <li>
+                    <a href="https://app.wheniwork.com/login/register" target="_blank" class="lower-nav-item" title="Employee Registration">Employee Registration</a>
+                </li>
+                <li>
+                    <a href="http://wheniwork.com/scheduling-studies" class="lower-nav-item" id="CaseStudiesLink" title="Case Studies">Happy Customers</a>
+                </li>
+                <li>
+                    <a href="https://help.wheniwork.com" target="_blank" class="lower-nav-item" title="Help &amp; Support">Help &amp; Support</a>
+                </li>
+                <li>
+                    <a href="http://wheniwork.com/attend-demo" class="lower-nav-item" id="WebinarLink" title="Free Webinar">Free Webinar</a>
+                </li>
+                <li>
+                    <a href="http://wheniwork.com/press-room" class="lower-nav-item" id="PressRoomLink" title="Press Room">Press Room</a>
+                </li>
+                <li>
+                    <a href="http://wheniwork.com/request-info" class="lower-nav-item" id="RequestInfoLink" title="Request Information about Employee Scheduling Software">Contact Us</a>
+                </li>
+                <li>
+                    <a href="http://wheniwork.com/partners" class="lower-nav-item" id="PartnersLink" title="Our Partners">Partners</a>
+                </li>
+                <li>
+                    <a href="http://dev.wheniwork.com" class="lower-nav-item" title="API Documentation">API/Dev</a>
+                </li>
+                <li>
+                    <a href="http://www.wheniwork.com/blog" class="lower-nav-item" title="Blog">Blog</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <!--END SIDEBAR MENU-->
+    <!--BEGIN SAVETIMEBAR MENU-->
+    <div data-toggle="modal" data-target="#myModal" id="campaign_75551_container_bottom" class="bouncex_header_bottom left bcx_middle floating_bar bcx_container bcx_no_effect " style="margin-top: -60px; width: 97px; height: 120px; display: block;position:fixed;top:47%;left:0;z-index:2;">
+        <div class="bcx_outer">
+            <div class="bcx_inner" style="overflow:hidden;width:97px;height:120px;">
+                <div class="bcx_ie_fix">
+                </div>
+                <div>
+                    <a target="_top" id="bcx_close_75551_bottom" class="bouncex_close bcx_close_header_bottom size_50 top_right left" href="javascript:close_bouncex_ad(75551);" style="display: none;"></a>
+                    <div class="bcx_onsite_els" id="bcx_onsite_els_75551_s0" style="display:block">
+                        <div class="bcx_el superlink " id="bouncex_el_9" style="min-width:20px; min-height:20px; height:111px; width:90px;font-family:Arial;position:absolute;z-index:4;font-size:;top:4px;left:2px;">
+                            <a target="_top" href="javascript:(function(){(function(){bouncex.report(75551,'clicks');bouncex.show_ad(75559);return false;})()})();" name="9_name" style="font-size:12px;padding:0;height:111px;width:90px;border-radius: 0;background-color:transparent;margin:0;background-image:url(about:blank);text-shadow: none;box-shadow: none;margin:0;display:block;border:1px solid transparent;"></a>
+                        </div>
+                    </div>
+                    <iframe name="bcx_75551_iframe_bottom" id="bcx_75551_iframe_bottom" horizontalscrolling="no" verticalscrolling="no" width="100%" height="100%" frameborder="0" vspace="0" hspace="0" marginwidth="0" marginheight="0" allowtransparency="true" target="_parent" src="http://api.bounceexchange.com/bounce/iframe_campaign/75551?mode=0&amp;website_id=1117&amp;device_type=d&amp;cv_id=&amp;visit_id=1418107346780237&amp;height=633&amp;w=97px&amp;h=120px&amp;width=1920&amp;campaign_id=75551&amp;cvt=1418107346&amp;fsa=1418109856&amp;scale=1&amp;pos=header_bottom&amp;vars%5Blogged_in%5D=false&amp;vars%5Bever_logged_in%5D=false"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--END SAVETIMEBAR MENU-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+
+
+
+
+                    <div id="scheduling-signup" class="">
+                        <a href="http://wheniwork.com"><img src="http://wheniwork.com/images/when-i-work-employee-scheduling-software-logo.svg"></a>
+                        <h2>Scheduling Made Easy.<br> Start Your Free Trial.</h2>
+                        <h3>The easiest way to schedule and communicate with<br> your employees. No credit card required.</h3>
+                        <form class="form-signup" action="" method="post">
+                            <ul class="form-fields-list" style="height: 110px;">
+                                <li>
+                                    <div class="field field-name">
+                                        <label for="name"><i class="fa fa-user"></i></label>
+                                        <span><input type="text" name="name" placeholder="Full Name"></span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="field field-email">
+                                        <label for="email"><i class="fa fa-envelope"></i></label>
+                                        <span><input type="text" name="email" placeholder="Email Address"></span>
+                                    </div>
+                                </li>
+                                <li class="promo-code">
+                                    <div class="field field-coupon">
+                                        <label for="coupon"><i class="fa fa-gift"></i></label>
+                                        <span><input type="text" name="coupon" placeholder="Coupon Code" disabled=""></span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <input type="hidden" id="mbsy_short_code" name="mbsy_short_code" value="">
+                            <input type="hidden" name="trial_length" value="30">
+                            <input type="hidden" name="ref_page" value="homepage">
+                            <input type="hidden" name="type" value="1">
+
+                            <div class="submit-container">
+                                <button type="submit" class="submit_b">Start My Free Trial</button>
+                                <button type="submit" class="create-loading" style="display:none">Start My Free Trial</button> <!-- To keep correct spacing -->
+                                <div class="create-loading" style="display:none">
+                                    Creating Account <span class="dot-anim">.</span><span class="dot-anim">.</span><span class="dot-anim">.</span>
+                                    <script>
+                                        $(window).load(function () {
+                                            $('.create-loading span').addClass('dot-anim');
+                                        });
+                                    </script>
+                                </div>
+                            </div>
+                            <div id="have_code" style="padding-top:15px;"><a>Got a coupon code?</a></div>
+                        </form>
+                        <p class="legal">By clicking <strong>Start My Free Trial</strong> you agree to the <a href="http://wheniwork.com/terms" target="_blank">Terms of Service</a>.</p>
+                        <a class="close-popup" data-dismiss="modal" aria-hidden="true"><img src="http://wheniwork.com/images/close-popup.svg"></a>
+                    </div>
+
+
+
+
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- get a code script -->
     <script>
-        jQuery(document).ready(function () {
-            Index.init();
-            Index.initDashboardDaterange();
-            //Index.initJQVMAP(); // init index page's custom scripts
-            //Index.initCalendar(); // init index page's custom scripts
-            Index.initCharts(); // init index page's custom scripts
-            //Index.initChat();
-            //Index.initMiniCharts();
-            //Index.initIntro();
-            Tasks.initDashboardWidget();
+        $(document).ready(function () {
+            var DURATION = 200;
+
+            $('#scheduling-signup .form-fields-list').height(formHeight());
+
+            function formHeight() {
+                if ($('#scheduling-signup .form-fields-list').hasClass('expanded'))
+                    return $('#scheduling-signup .promo-code').outerHeight() * 3;
+                else
+                    return $('#scheduling-signup .promo-code').outerHeight() * 2;
+            }
+
+            $('#scheduling-signup #have_code').click(function () {
+                $('#scheduling-signup .form-fields-list').toggleClass('expanded');
+                var isExpanded = $('#scheduling-signup .form-fields-list').hasClass('expanded');
+                if (isExpanded) {
+                    $('#scheduling-signup .field-coupon input').prop('disabled', false);
+                }
+                $('#scheduling-signup .form-fields-list').animate({ 'height': formHeight() + 'px' }, DURATION, function () {
+                    if (!isExpanded) {
+                        $('#scheduling-signup .field-coupon input').prop('disabled', true);
+                    }
+                });
+            });
+
+            $(window).resize(function () {
+                $('#scheduling-signup .form-fields-list').height(formHeight());
+            });
         });
     </script>
-    <!-- END JAVASCRIPTS -->
-}
+    <!-- get a code script end -->
+    <!--BEGIN COVERBOX MENU-->
+    <!--BEND COVERBOX MENU-->
 
-
-<!-- BEGIN PAGE HEADER-->
-<h3 class="page-title">
-    Dashboard <small>dashboard & statistics</small>
-</h3>
-<div class="page-bar">
-    <ul class="page-breadcrumb">
-        <li>
-            <i class="fa fa-home"></i>
-            <a href="index.html">Home</a>
-            <i class="fa fa-angle-right"></i>
-        </li>
-        <li>
-            <a href="#">Dashboard</a>
-            <i class="fa fa-angle-right"></i>
-        </li>
-        <li>
-            <a href="#">Dashboard</a>
-        </li>
-    </ul>
-    <div class="page-toolbar">
-        <div id="dashboard-report-range" class="pull-right tooltips btn btn-fit-height grey-salt" data-placement="top" data-original-title="Change dashboard date range">
-            <i class="icon-calendar"></i>&nbsp; <span class="thin uppercase visible-lg-inline-block"></span>&nbsp; <i class="fa fa-angle-down"></i>
-        </div>
-    </div>
-</div>
-<!-- END PAGE HEADER-->
-<!-- BEGIN DASHBOARD STATS -->
-<div class="row">
-    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-        <div class="dashboard-stat blue-madison">
-            <div class="visual">
-                <i class="fa fa-comments"></i>
-            </div>
-            <div class="details">
-                <div class="number">
-                    1349
-                </div>
-                <div class="desc">
-                    New Feedbacks
-                </div>
-            </div>
-            <a class="more" href="#">
-                View more <i class="m-icon-swapright m-icon-white"></i>
-            </a>
-        </div>
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-        <div class="dashboard-stat red-intense">
-            <div class="visual">
-                <i class="fa fa-bar-chart-o"></i>
-            </div>
-            <div class="details">
-                <div class="number">
-                    12,5M$
-                </div>
-                <div class="desc">
-                    Total Profit
-                </div>
-            </div>
-            <a class="more" href="#">
-                View more <i class="m-icon-swapright m-icon-white"></i>
-            </a>
-        </div>
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-        <div class="dashboard-stat green-haze">
-            <div class="visual">
-                <i class="fa fa-shopping-cart"></i>
-            </div>
-            <div class="details">
-                <div class="number">
-                    549
-                </div>
-                <div class="desc">
-                    New Orders
-                </div>
-            </div>
-            <a class="more" href="#">
-                View more <i class="m-icon-swapright m-icon-white"></i>
-            </a>
-        </div>
-    </div>
-
-</div>
-<!-- END DASHBOARD STATS -->
-<div class="clearfix">
-</div>
-<div class="row">
-    <div class="col-md-6 col-sm-6">
-        <!-- BEGIN PORTLET-->
-        <div class="portlet solid bordered grey-cararra">
-            <div class="portlet-title">
-                <div class="caption">
-                    <i class="fa fa-bar-chart-o"></i>Site Visits
-                </div>
-                <div class="actions">
-                    <div class="btn-group" data-toggle="buttons">
-                        <label class="btn grey-steel btn-sm active">
-                            <input type="radio" name="options" class="toggle" id="option1">New
-                        </label>
-                        <label class="btn grey-steel btn-sm">
-                            <input type="radio" name="options" class="toggle" id="option2">Returning
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="portlet-body">
-                <div id="site_statistics_loading">
-                    <img src="/Content/assets/admin/layout/img/loading.gif" alt="loading" />
-                </div>
-                <div id="site_statistics_content" class="display-none">
-                    <div id="site_statistics" class="chart">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END PORTLET-->
-    </div>
-    <div class="col-md-6 col-sm-6">
-        <!-- BEGIN PORTLET-->
-        <div class="portlet solid grey-cararra bordered">
-            <div class="portlet-title">
-                <div class="caption">
-                    <i class="fa fa-bullhorn"></i>Revenue
-                </div>
-                <div class="actions">
-                    <div class="btn-group pull-right">
-                        <a href="" class="btn grey-steel btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            Filter <span class="fa fa-angle-down">
-                            </span>
-                        </a>
-                        <ul class="dropdown-menu pull-right">
-                            <li>
-                                <a href="javascript:;">
-                                    Q1 2014 <span class="label label-sm label-default">
-                                        past
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:;">
-                                    Q2 2014 <span class="label label-sm label-default">
-                                        past
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="active">
-                                <a href="javascript:;">
-                                    Q3 2014 <span class="label label-sm label-success">
-                                        current
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:;">
-                                    Q4 2014 <span class="label label-sm label-warning">
-                                        upcoming
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="portlet-body">
-                <div id="site_activities_loading">
-                    <img src="/Content/assets/admin/layout/img/loading.gif" alt="loading" />
-                </div>
-                <div id="site_activities_content" class="display-none">
-                    <div id="site_activities" style="height: 228px;">
-                    </div>
-                </div>
-                <div style="margin: 20px 0 10px 30px">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-                            <span class="label label-sm label-success">
-                                Revenue:
-                            </span>
-                            <h3>$13,234</h3>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-                            <span class="label label-sm label-info">
-                                Tax:
-                            </span>
-                            <h3>$134,900</h3>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-                            <span class="label label-sm label-danger">
-                                Shipment:
-                            </span>
-                            <h3>$1,134</h3>
-                        </div>
-                        <div class="col-md-3 col-sm-3 col-xs-6 text-stat">
-                            <span class="label label-sm label-warning">
-                                Orders:
-                            </span>
-                            <h3>235090</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- END PORTLET-->
-    </div>
-</div>
-<div class="clearfix">
-</div>
-
-
-
-
-
+</body>
+<!-- END BODY -->

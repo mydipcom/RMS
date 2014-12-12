@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_FrontLayout.cshtml";
 }
 @model Rms.Web.Models.Customer.LoginModel
 
@@ -12,33 +12,15 @@
 
 
 @section PageScript{
-    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-    <!-- BEGIN PAGE LEVEL PLUGINS -->
-    <script src="/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
-    <script src="/Content/assets/global/plugins/backstretch/jquery.backstretch.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="/Content/assets/global/plugins/select2/select2.min.js"></script>
-    <!-- END PAGE LEVEL PLUGINS -->
-    <!-- BEGIN PAGE LEVEL SCRIPTS -->
 
+    <script src="/Content/assets/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
     <script src="/Content/assets/admin/pages/scripts/login-soft.js" type="text/javascript"></script>
-    <!-- END PAGE LEVEL SCRIPTS -->
+    
     <script>
         jQuery(document).ready(function() {
             Login.init();
-            // init background slide images
-            $.backstretch([
-                    "/Content/assets/admin/pages/media/bg/1.jpg",
-                    "/Content/assets/admin/pages/media/bg/2.jpg",
-                    "/Content/assets/admin/pages/media/bg/3.jpg",
-                    "/Content/assets/admin/pages/media/bg/4.jpg"
-                ], {
-                    fade: 1000,
-                    duration: 8000
-                }
-            );
         });
     </script>
-    <!-- END JAVASCRIPTS -->
 }
 
 
@@ -53,104 +35,100 @@
 <!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
 <body class="login">
-    <!-- BEGIN LOGO -->
-    <div class="logo">
-        <a href="index.html">
-            <img src="/Content/assets/admin/layout/img/logo-big.png" alt="" />
-        </a>
-    </div>
-    <!-- END LOGO -->
+
+
+
     <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
     <div class="menu-toggler sidebar-toggler">
     </div>
     <!-- END SIDEBAR TOGGLER BUTTON -->
     <!-- BEGIN LOGIN -->
     <div class="content">
+
+        <!-- BEGIN LOGO -->
+        <div class="logo">
+            <a href="../Home/Index">
+                <img src="http://wheniwork.com/images/when-i-work-employee-scheduling-software-logo.svg" alt="" />
+            </a>
+        </div>
+        <!-- END LOGO -->
         <!-- BEGIN LOGIN FORM -->
-       
-            @using (Html.BeginForm("Login", "Customer", new { returnurl = ViewBag.returnUrl ?? this.Context.Request.QueryString["returnUrl"] }, FormMethod.Post, new { @class = "login-form" }))
-            {
+        @using (Html.BeginForm("Login", "Customer", new { returnurl = ViewBag.returnUrl ?? this.Context.Request.QueryString["returnUrl"] }, FormMethod.Post, new { @class = "login-form" }))
+        {
 
-                <h3 class="form-title">Login to your account</h3>
-                
-                @Html.ValidationSummary(true, T("Account.Login.Unsuccessful").Text)
 
-                <div class="alert alert-danger display-hide">
-                    <button class="close" data-close="alert"></button>
-                    <span>
-                        Enter any username and password.
-                    </span>
+
+            @Html.ValidationSummary(true, T("Account.Login.Unsuccessful").Text)
+
+
+
+            <div class="alert alert-danger display-hide">
+                <button class="close" data-close="alert"></button>
+                <span>
+                    Enter any username and password.
+                </span>
+            </div>
+            <div class="form-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <label class="control-label visible-ie8 visible-ie9">Username</label>
+                <div class="input-icon">
+                    <i class="fa fa-user"></i>
+                    @Html.TextBoxFor(m => m.UserName, new { @class = "form-control placeholder-no-fix", autocomplete = "off", placeholder = "Username" })
                 </div>
-                <div class="form-group">
-                    <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                    <label class="control-label visible-ie8 visible-ie9">Username</label>
-                    <div class="input-icon">
-                        <i class="fa fa-user"></i>
-                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control placeholder-no-fix" ,autocomplete="off", placeholder="Username"})
-                    </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label visible-ie8 visible-ie9">Password</label>
+                <div class="input-icon">
+                    <i class="fa fa-lock"></i>
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control placeholder-no-fix", autocomplete = "off", placeholder = "Password" })
                 </div>
-                <div class="form-group">
-                    <label class="control-label visible-ie8 visible-ie9">Password</label>
-                    <div class="input-icon">
-                        <i class="fa fa-lock"></i>
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control placeholder-no-fix", autocomplete="off", placeholder="Password"})
-                    </div>
-                </div>
-                <div class="form-actions">
-                    <label class="checkbox">
-                        @Html.CheckBoxFor(m => m.RememberMe)Remember me
-                    </label>
-                    <button type="submit" class="btn blue pull-right">
-                        Login <i class="m-icon-swapright m-icon-white"></i>
-                    </button>
-                </div>
-                <div class="login-options">
-                    <h4>Or login with</h4>
-                    <ul class="social-icons">
-                        <li>
-                            <a class="facebook" data-original-title="facebook" href="#">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="twitter" data-original-title="Twitter" href="#">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="googleplus" data-original-title="Goole Plus" href="#">
-                            </a>
-                        </li>
-                        <li>
-                            <a class="linkedin" data-original-title="Linkedin" href="#">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="forget-password">
-                    <h4>Forgot your password ?</h4>
-                    <p>
-                        no worries, click <a href="@Url.Action("ResetPassword")" id="forget-password">
-                                              here
-                                          </a>
-                        to reset your password.
-                    </p>
-                </div>
-                <div class="create-account">
-                    <p>
-                        Don't have an account yet ?&nbsp; <a href="@Url.Action("Register")" id="register-btn">
-                                                              Create an account
-                                                          </a>
-                    </p>
-                </div>
-            }
+            </div>
+            <div class="form-actions">
+
+                <button type="submit" class="button-kit green xlarge wide btn-block">
+                    Login
+                </button>
+            </div>
+
+
+
+
+        }
 
         <!-- END LOGIN FORM -->
+        <div class="row">
+            <div class="forget-password">
+
+
+                <a href="@Url.Action("PasswordRecovery")" id="forget-password">
+                    FORGOT PASSWORD
+                </a>
+
+
+            </div>
+            <div class="create-account  forget-password">
+
+                <a href="@Url.Action("Register")" id="register-btn">
+                    REGISTER NOW
+                </a>
+
+            </div>
+        </div>
     </div>
     <!-- END LOGIN -->
+
+
+
+    <div class="content info">
+        <span class="login-logo-small"></span> Having trouble? <a href="http://wheniwork.com/help">We can help!</a>
+    </div>
+
     <!-- BEGIN COPYRIGHT -->
     <div class="copyright">
         2014 &copy; Metronic - Admin Dashboard Template.
     </div>
     <!-- END COPYRIGHT -->
+
 
 </body>
 <!-- END BODY -->

@@ -508,6 +508,19 @@
     <Content Include="Content\assets\admin\pages\scripts\ui-notific8.js" />
     <Content Include="Content\assets\admin\pages\scripts\ui-toastr.js" />
     <Content Include="Content\assets\admin\pages\scripts\ui-tree.js" />
+    <Content Include="Content\assets\frontend\jsweb\css\common.css" />
+    <Content Include="Content\assets\frontend\jsweb\css\frameworks.css" />
+    <Content Include="Content\assets\frontend\jsweb\css\main-styles.css" />
+    <Content Include="Content\assets\frontend\jsweb\css\style.css" />
+    <Content Include="Content\assets\frontend\jsweb\scripts\fastclick.min.js" />
+    <Content Include="Content\assets\frontend\jsweb\scripts\jquery.cookie.js" />
+    <Content Include="Content\assets\frontend\jsweb\scripts\jquery.requestAnimationFrame.min.js" />
+    <Content Include="Content\assets\frontend\jsweb\scripts\jstz.js" />
+    <Content Include="Content\assets\frontend\jsweb\scripts\magnific-popup.min.js" />
+    <Content Include="Content\assets\frontend\jsweb\scripts\modernizr.js" />
+    <Content Include="Content\assets\frontend\jsweb\scripts\parallax.js" />
+    <Content Include="Content\assets\frontend\jsweb\scripts\rem.min.js" />
+    <Content Include="Content\assets\frontend\jsweb\scripts\validate.js" />
     <Content Include="Content\assets\frontend\layout\css\custom.css" />
     <Content Include="Content\assets\frontend\layout\css\style-responsive.css" />
     <Content Include="Content\assets\frontend\layout\css\style.css" />
@@ -4643,6 +4656,7 @@
     <Content Include="Views\Tenants\Index.cshtml" />
     <Content Include="Views\Industry\Index.cshtml" />
     <Content Include="Views\Common\PageHeader.cshtml" />
+    <Content Include="Views\Shared\_FrontLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\assets\global\plugins\jquery-file-upload\server\php\files\thumbnail\" />
