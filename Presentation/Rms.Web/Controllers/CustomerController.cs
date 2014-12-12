@@ -286,7 +286,11 @@ namespace Rms.Web.Controllers
 
         public ActionResult Profile()
         {
-            return View();
+            var customer = _workContext.CurrentCustomer;
+            var profile = new CustomerProfileModel();
+            profile.Email = customer.Email;
+            profile.FullName = customer.GetFullName();
+            return View(profile);
         }
 
 

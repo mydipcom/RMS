@@ -56,7 +56,6 @@ var Login = function () {
         init: function () {
         	
             handleLogin();
-            $('.login-form').submit();
         }
 
     };

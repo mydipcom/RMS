@@ -1,7 +1,7 @@
 ﻿@{
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
-
+@model Rms.Web.Models.Customer.CustomerProfileModel
 @section PageStyle{
     <!-- BEGIN PAGE LEVEL STYLES -->
     <link href="/Content/assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
@@ -128,9 +128,9 @@
                         <div class="col-md-9">
                             <div class="row">
                                 <div class="col-md-8 profile-info">
-                                    <h1>John Doe</h1>
+                                    <h1>@Model.FullName</h1>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam tincidunt erat volutpat.
+                                       电子邮件: @Model.Email
                                     </p>
                                     <p>
                                         <a href="#">
