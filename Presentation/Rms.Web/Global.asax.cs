@@ -66,6 +66,8 @@ namespace Rms.Web
             
             //fluent validation
             DataAnnotationsModelValidatorProvider.AddImplicitRequiredAttributeForValueTypes = false;
+            ModelValidatorProviders.Providers.Clear();
+            ModelValidatorProviders.Providers.Add(new NopModelValidatorMetadataProvider());
             ModelValidatorProviders.Providers.Add(new FluentValidationModelValidatorProvider(new NopValidatorFactory()));
 
             //start scheduled tasks

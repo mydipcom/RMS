@@ -145,6 +145,8 @@
         var $modalel = $("#createorupdate");
         var $submitel = $("#createorupdatesubmit");
         var $createel = $("#rowcreate");
+        var $deletemodalel = $("#item-delete"); 
+        var $deletebtnel = $("#item-delete-ok");
 
         $(".rowedit").live("click", function() {
             clearFormValidate();
@@ -170,8 +172,15 @@
 
         $(".rowdelete").live("click", function() {
             var id = $(this).attr("data-id");
+            $deletebtnel.attr("data-id", id);
+            $deletemodalel.modal('show');
+        });
+
+        $deletebtnel.click(function() {
+            var id = $(this).attr("data-id");
             $.post("/Tenants/Delete", { id: id }, function(databack) {
                 if (databack.Result) {
+                    $deletebtnel.attr("data-id", 0);
                     successMsg('The tenants has been delete successfully.');
                     grid.getDataTable().ajax.reload();
                 }

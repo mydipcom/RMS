@@ -196,6 +196,7 @@
     <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\SwapShiftsController.cs" />
     <Compile Include="Controllers\TenantsController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -212,20 +213,20 @@
     <Compile Include="Models\Common\LanguageModel.cs" />
     <Compile Include="Models\Common\LanguageSelectorModel.cs" />
     <Compile Include="Models\Common\UIResponse.cs" />
+    <Compile Include="Models\Customer\ChangePasswordModel.cs" />
     <Compile Include="Models\Customer\CustomerModel.cs" />
     <Compile Include="Models\Customer\CustomerProfileModel.cs" />
     <Compile Include="Models\Customer\LoginModel.cs" />
     <Compile Include="Models\Customer\RegisterModel.cs" />
     <Compile Include="Models\Customer\PasswordRecoveryModel.cs" />
+    <Compile Include="Models\Customer\UserInfoModel.cs" />
     <Compile Include="Models\Industry\IndustryModel.cs" />
     <Compile Include="Models\Install\InstallModel.cs" />
     <Compile Include="Models\Tenants\TenantsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validators\Customer\PasswordRecoveryValidator.cs" />
     <Compile Include="Validators\Customer\RegisterValidator.cs" />
-    <Compile Include="Validators\Industry\IndustryValidator.cs" />
     <Compile Include="Validators\Install\InstallValidator.cs" />
-    <Compile Include="Validators\Tenants\TenantsValidator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Install\create_required_data.sql" />
@@ -465,6 +466,7 @@
     <Content Include="Content\assets\admin\pages\scripts\components-pickers.js" />
     <Content Include="Content\assets\admin\pages\scripts\contact-us.js" />
     <Content Include="Content\assets\admin\pages\scripts\custom.js" />
+    <Content Include="Content\assets\admin\pages\scripts\customer-profile.js" />
     <Content Include="Content\assets\admin\pages\scripts\ecommerce-index.js" />
     <Content Include="Content\assets\admin\pages\scripts\ecommerce-orders-view.js" />
     <Content Include="Content\assets\admin\pages\scripts\ecommerce-orders.js" />
@@ -4648,7 +4650,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Common\PageNotFound.cshtml" />
     <Content Include="Views\Customer\PasswordRecovery.cshtml" />
-    <Content Include="Views\Customer\Profile.cshtml" />
+    <Content Include="Views\Customer\CustomerProfile.cshtml" />
     <Content Include="Views\Customer\CustomerManager.cshtml" />
     <Content Include="Views\Schedule\Index.cshtml" />
     <Content Include="Views\SwapShifts\Index.cshtml" />
@@ -4657,6 +4659,7 @@
     <Content Include="Views\Industry\Index.cshtml" />
     <Content Include="Views\Common\PageHeader.cshtml" />
     <Content Include="Views\Shared\_FrontLayout.cshtml" />
+    <Content Include="Views\Test\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\assets\global\plugins\jquery-file-upload\server\php\files\thumbnail\" />

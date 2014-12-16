@@ -146,6 +146,8 @@ var IndustryAjax = function() {
         var $modalel = $("#createorupdate");
         var $submitel = $("#createorupdatesubmit");
         var $createel = $("#rowcreate");
+        var $deletemodalel = $("#item-delete");
+        var $deletebtnel = $("#item-delete-ok");
 
         $(".rowedit").live("click", function() {
             clearFormValidate();
@@ -158,14 +160,21 @@ var IndustryAjax = function() {
             });
         });
 
-        $(".rowdelete").live("click", function() {
+        $(".rowdelete").live("click", function () {
             var id = $(this).attr("data-id");
-            $.post("/Industry/Delete", { id: id }, function(databack) {
+            $deletebtnel.attr("data-id", id);
+            $deletemodalel.modal('show');
+        });
+
+        $deletebtnel.click(function () {
+            var id = $(this).attr("data-id");
+            $.post("/Industry/Delete", { id: id }, function (databack) {
                 if (databack.Result) {
-                    successMsg('The Industry has been delete successfully.');
+                    $deletebtnel.attr("data-id", 0);
+                    successMsg('The industry has been delete successfully.');
                     grid.getDataTable().ajax.reload();
                 }
-            });
+            }); 
         });
 
         $createel.click(function() {

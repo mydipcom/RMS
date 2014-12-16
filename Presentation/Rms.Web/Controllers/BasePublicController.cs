@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using System.Web.Routing;
 using Rms.Core.Infrastructure;
@@ -7,6 +8,7 @@ using Rms.Web.Framework.Controllers;
 using Rms.Web.Framework.Security;
 using Rms.Web.Framework.Seo;
 using Rms.Web.Models.Common;
+using WebGrease.Css.Extensions;
 
 namespace Rms.Web.Controllers
 {
@@ -33,9 +35,12 @@ namespace Rms.Web.Controllers
         }
 
 
-        protected virtual JsonResult Fail(IList<string> msgs)
+        protected virtual JsonResult Fail()
         {
+            var msgs = new List<string>();
+            ModelState.Values.ForEach(d => msgs.AddRange(d.Errors.Select(e => e.ErrorMessage)));
             return Json(new UIResponse(false, msgs));
         }
+
     }
 }

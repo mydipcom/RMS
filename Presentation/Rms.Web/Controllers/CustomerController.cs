@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using Microsoft.Ajax.Utilities;
 using Rms.Core;
 using Rms.Core.Domain.Common;
 using Rms.Core.Domain.Customers;
@@ -25,6 +26,7 @@ using Rms.Web.Framework.Security;
 using Rms.Web.Framework.UI.Captcha;
 using Rms.Web.Models.Common;
 using Rms.Web.Models.Customer;
+using Rms.Web.Validators.Customer;
 
 namespace Rms.Web.Controllers
 {
@@ -284,13 +286,53 @@ namespace Rms.Web.Controllers
             return View(model);
         }
 
-        public ActionResult Profile()
-        {
+        public ActionResult CustomerProfile()
+        { 
             var customer = _workContext.CurrentCustomer;
             var profile = new CustomerProfileModel();
             profile.Email = customer.Email;
             profile.FullName = customer.GetFullName();
             return View(profile);
+        }
+
+
+        [HttpPost]
+        public JsonResult ChangePassword(ChangePasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var changePasswordRequest = new ChangePasswordRequest(_workContext.CurrentCustomer.Email,
+                    true, _customerSettings.DefaultPasswordFormat, model.NewPassword, model.OldPassword);
+                var changePasswordResult = _customerRegistrationService.ChangePassword(changePasswordRequest);
+                if (changePasswordResult.Success)
+                {
+                    return Success();
+                }
+                else
+                {
+                    changePasswordResult.Errors.ForEach(e => ModelState.AddModelError(string.Empty, e));
+                    return Fail();
+                }
+            }
+            return Fail();
+        }
+
+
+
+        [HttpPost]
+        public JsonResult UserInfoEdit(UserInfoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var customer = _workContext.CurrentCustomer;
+                _genericAttributeService.SaveAttribute(customer, SystemCustomerAttributeNames.FirstName, model.FirstName);
+                _genericAttributeService.SaveAttribute(customer, SystemCustomerAttributeNames.LastName, model.LastName);
+                _genericAttributeService.SaveAttribute(customer, SystemCustomerAttributeNames.Phone, model.MobileNumber);
+                _genericAttributeService.SaveAttribute(customer, SystemCustomerAttributeNames.Gender, model.Gender);
+                _genericAttributeService.SaveAttribute(customer, SystemCustomerAttributeNames.Company, model.Company);
+                return Success();
+            }
+            return Fail();
         }
 
 

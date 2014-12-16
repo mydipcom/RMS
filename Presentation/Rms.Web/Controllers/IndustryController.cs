@@ -9,7 +9,6 @@ using Rms.Services.Common;
 using Rms.Web.Models.Common;
 using Rms.Web.Models.Customer;
 using Rms.Web.Models.Industry;
-using Rms.Web.Validators.Industry;
 
 namespace Rms.Web.Controllers
 {
@@ -94,10 +93,7 @@ namespace Rms.Web.Controllers
         /// <returns></returns>
         public JsonResult CreateOrUpdate(IndustryModel model)
         {
-            var validator = new IndustryValidator();
-            var results = validator.Validate(model);
-
-            if (results.IsValid)
+            if (ModelState.IsValid)
             {
                 var entity = model.Id == 0 ? new Industry() : _industryService.GetIndustryById(model.Id);
                 ModelMapToEntity(model, entity);
@@ -111,8 +107,7 @@ namespace Rms.Web.Controllers
                 }
                 return Success();
             }
-            var failmsg = results.Errors.ToList().Select(t => t.ErrorMessage).ToList();
-            return Fail(failmsg);
+            return Fail();
         }
 
 

@@ -9,7 +9,7 @@ using Rms.Services.Tenants;
 using Rms.Web.Models.Common;
 using Rms.Web.Models.Customer;
 using Rms.Web.Models.Tenants;
-using Rms.Web.Validators.Tenants;
+
 
 namespace Rms.Web.Controllers
 {
@@ -94,10 +94,7 @@ namespace Rms.Web.Controllers
         /// <returns></returns>
         public JsonResult CreateOrUpdate(TenantsModel model)
         {
-            var validator = new TenantsValidator();
-            var results = validator.Validate(model);
-
-            if (results.IsValid)
+            if (ModelState.IsValid)
             {
                 var entity = model.Id == 0 ? new Tenant() : _tenantService.GetTenantById(model.Id);
                 ModelMapToEntity(model, entity);
@@ -114,8 +111,7 @@ namespace Rms.Web.Controllers
                 }
                 return Success();
             }
-            var failmsg = results.Errors.ToList().Select(t => t.ErrorMessage).ToList();
-            return Fail(failmsg);
+            return Fail();
         }
 
 

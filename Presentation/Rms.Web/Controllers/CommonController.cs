@@ -163,6 +163,17 @@ namespace Rms.Web.Controllers
 
         #region Methods
 
+        [HttpPost]
+        public ActionResult Upload()
+        {
+            var files = Request.Files;
+            var content = new ContentResult()
+            {
+                Content = "/Content/assets/admin/pages/media/profile/profile-img.png"
+            };
+            return content;
+        }
+
 
         /// <summary>
         /// Pages the header.

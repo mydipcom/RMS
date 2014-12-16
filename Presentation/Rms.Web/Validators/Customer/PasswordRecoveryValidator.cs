@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using FluentValidation;
+using Rms.Core.Infrastructure;
 using Rms.Services.Localization;
 using Rms.Web.Models.Customer;
 
